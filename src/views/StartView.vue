@@ -12,7 +12,7 @@ interface Section {
 const sections: Section[] = [
     {
         title: "Ärenden",
-        text: "Bläddra bland 120 påhittade ärenden och öppna ett ärende för att se detaljerna.",
+        text: "Bläddra bland 10 000 påhittade ärenden och öppna ett ärende för att se detaljerna.",
         to: "/arenden",
         linkText: "Visa ärenden",
     },
