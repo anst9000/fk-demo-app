@@ -65,6 +65,7 @@ const subsystemColumns = defineTableColumns<Subsystem>([
             <!-- key: reload the list when navigating to another application -->
             <paginated-list
                 :key="item.id"
+                list-id="applikation-delsystem"
                 :load="() => subsystemRepository.getByApplicationId(item!.id)"
                 :columns="subsystemColumns"
                 noun="delsystem"

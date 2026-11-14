@@ -25,5 +25,5 @@ const columns = defineTableColumns<Subsystem>([
 <template>
     <h1>Delsystem</h1>
     <p>Klicka på en rad för att se delsystemet.</p>
-    <paginated-list :load="subsystemRepository.getAll" :columns noun="delsystem" />
+    <paginated-list list-id="delsystem" :load="subsystemRepository.getAll" :columns noun="delsystem" />
 </template>

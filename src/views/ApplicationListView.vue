@@ -24,5 +24,5 @@ const columns = defineTableColumns<Application>([
 <template>
     <h1>Applikationer</h1>
     <p>Påhittade applikationer. Klicka på en rad för att se applikationen och dess delsystem.</p>
-    <paginated-list :load="applicationRepository.getAll" :columns noun="applikationer" />
+    <paginated-list list-id="applikationer" :load="applicationRepository.getAll" :columns noun="applikationer" />
 </template>

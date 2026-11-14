@@ -26,5 +26,5 @@ const columns = defineTableColumns<Case>([
 <template>
     <h1>Ärenden</h1>
     <p>Klicka på en rad för att öppna ärendet.</p>
-    <paginated-list :load="caseRepository.getAll" :columns noun="ärenden" />
+    <paginated-list list-id="arenden" :load="caseRepository.getAll" :columns noun="ärenden" />
 </template>
