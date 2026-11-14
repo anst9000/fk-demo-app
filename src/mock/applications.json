@@ -1,0 +1,372 @@
+[
+  {
+    "id": 1,
+    "name": "Ärendehantering föräldrapenning",
+    "shortName": "ÄH-FOR01",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under avveckling",
+    "technology": ".NET",
+    "launched": "2020",
+    "description": "Ärendehantering för förmånen föräldrapenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 2,
+    "name": "Självbetjäning föräldrapenning",
+    "shortName": "SB-FOR02",
+    "owner": "Avdelningen för kundmöten",
+    "status": "Avvecklad",
+    "technology": "Vue 3 / Java",
+    "launched": "2025",
+    "description": "Självbetjäning för förmånen föräldrapenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 3,
+    "name": "Statistik föräldrapenning",
+    "shortName": "ST-FOR03",
+    "owner": "Avdelningen för barn och familj",
+    "status": "Under utveckling",
+    "technology": "Vue 3 / Java",
+    "launched": "2009",
+    "description": "Statistik för förmånen föräldrapenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 4,
+    "name": "Ärendehantering sjukpenning",
+    "shortName": "ÄH-SJU04",
+    "owner": "Avdelningen för kundmöten",
+    "status": "Avvecklad",
+    "technology": "Vue 2 / Java",
+    "launched": "2009",
+    "description": "Ärendehantering för förmånen sjukpenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 5,
+    "name": "Självbetjäning sjukpenning",
+    "shortName": "SB-SJU05",
+    "owner": "Avdelningen för sjukförsäkring",
+    "status": "I produktion",
+    "technology": ".NET",
+    "launched": "2009",
+    "description": "Självbetjäning för förmånen sjukpenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 6,
+    "name": "Beslutsstöd sjukpenning",
+    "shortName": "BS-SJU06",
+    "owner": "Avdelningen för barn och familj",
+    "status": "I produktion",
+    "technology": "Vue 2 / Java",
+    "launched": "2021",
+    "description": "Beslutsstöd för förmånen sjukpenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 7,
+    "name": "Utbetalning sjukpenning",
+    "shortName": "UB-SJU07",
+    "owner": "Avdelningen för kundmöten",
+    "status": "Avvecklad",
+    "technology": "Vue 2 / Java",
+    "launched": "2008",
+    "description": "Utbetalning för förmånen sjukpenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 8,
+    "name": "Statistik sjukpenning",
+    "shortName": "ST-SJU08",
+    "owner": "Avdelningen för barn och familj",
+    "status": "Under avveckling",
+    "technology": "Java EE",
+    "launched": "2013",
+    "description": "Statistik för förmånen sjukpenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 9,
+    "name": "Ärendehantering bostadsbidrag",
+    "shortName": "ÄH-BOS09",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Avvecklad",
+    "technology": "COBOL / stordator",
+    "launched": "2011",
+    "description": "Ärendehantering för förmånen bostadsbidrag. Fiktiv applikation för demo."
+  },
+  {
+    "id": 10,
+    "name": "Självbetjäning bostadsbidrag",
+    "shortName": "SB-BOS10",
+    "owner": "Avdelningen för sjukförsäkring",
+    "status": "Under utveckling",
+    "technology": "Vue 3 / Kotlin",
+    "launched": "2023",
+    "description": "Självbetjäning för förmånen bostadsbidrag. Fiktiv applikation för demo."
+  },
+  {
+    "id": 11,
+    "name": "Beslutsstöd bostadsbidrag",
+    "shortName": "BS-BOS11",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under avveckling",
+    "technology": "COBOL / stordator",
+    "launched": "2015",
+    "description": "Beslutsstöd för förmånen bostadsbidrag. Fiktiv applikation för demo."
+  },
+  {
+    "id": 12,
+    "name": "Utbetalning bostadsbidrag",
+    "shortName": "UB-BOS12",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "I produktion",
+    "technology": "COBOL / stordator",
+    "launched": "2017",
+    "description": "Utbetalning för förmånen bostadsbidrag. Fiktiv applikation för demo."
+  },
+  {
+    "id": 13,
+    "name": "Statistik bostadsbidrag",
+    "shortName": "ST-BOS13",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under utveckling",
+    "technology": "Vue 3 / Java",
+    "launched": "2021",
+    "description": "Statistik för förmånen bostadsbidrag. Fiktiv applikation för demo."
+  },
+  {
+    "id": 14,
+    "name": "Beslutsstöd barnbidrag",
+    "shortName": "BS-BAR14",
+    "owner": "IT-avdelningen",
+    "status": "Under avveckling",
+    "technology": ".NET",
+    "launched": "2012",
+    "description": "Beslutsstöd för förmånen barnbidrag. Fiktiv applikation för demo."
+  },
+  {
+    "id": 15,
+    "name": "Utbetalning barnbidrag",
+    "shortName": "UB-BAR15",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under avveckling",
+    "technology": "Vue 2 / Java",
+    "launched": "2012",
+    "description": "Utbetalning för förmånen barnbidrag. Fiktiv applikation för demo."
+  },
+  {
+    "id": 16,
+    "name": "Ärendehantering aktivitetsersättning",
+    "shortName": "ÄH-AKT16",
+    "owner": "Avdelningen för barn och familj",
+    "status": "Under utveckling",
+    "technology": "Vue 2 / Java",
+    "launched": "2021",
+    "description": "Ärendehantering för förmånen aktivitetsersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 17,
+    "name": "Självbetjäning aktivitetsersättning",
+    "shortName": "SB-AKT17",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under avveckling",
+    "technology": "Vue 3 / Kotlin",
+    "launched": "2013",
+    "description": "Självbetjäning för förmånen aktivitetsersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 18,
+    "name": "Beslutsstöd aktivitetsersättning",
+    "shortName": "BS-AKT18",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under avveckling",
+    "technology": "Vue 3 / Java",
+    "launched": "2023",
+    "description": "Beslutsstöd för förmånen aktivitetsersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 19,
+    "name": "Utbetalning aktivitetsersättning",
+    "shortName": "UB-AKT19",
+    "owner": "Avdelningen för sjukförsäkring",
+    "status": "I produktion",
+    "technology": "Vue 2 / Java",
+    "launched": "2013",
+    "description": "Utbetalning för förmånen aktivitetsersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 20,
+    "name": "Ärendehantering assistansersättning",
+    "shortName": "ÄH-ASS20",
+    "owner": "IT-avdelningen",
+    "status": "Under utveckling",
+    "technology": "Vue 3 / Java",
+    "launched": "2015",
+    "description": "Ärendehantering för förmånen assistansersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 21,
+    "name": "Beslutsstöd assistansersättning",
+    "shortName": "BS-ASS21",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under avveckling",
+    "technology": "COBOL / stordator",
+    "launched": "2024",
+    "description": "Beslutsstöd för förmånen assistansersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 22,
+    "name": "Utbetalning assistansersättning",
+    "shortName": "UB-ASS22",
+    "owner": "Avdelningen för kundmöten",
+    "status": "Under utveckling",
+    "technology": "Vue 3 / Kotlin",
+    "launched": "2016",
+    "description": "Utbetalning för förmånen assistansersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 23,
+    "name": "Statistik assistansersättning",
+    "shortName": "ST-ASS23",
+    "owner": "IT-avdelningen",
+    "status": "Under avveckling",
+    "technology": ".NET",
+    "launched": "2022",
+    "description": "Statistik för förmånen assistansersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 24,
+    "name": "Ärendehantering graviditetspenning",
+    "shortName": "ÄH-GRA24",
+    "owner": "Avdelningen för kundmöten",
+    "status": "Under utveckling",
+    "technology": "COBOL / stordator",
+    "launched": "2023",
+    "description": "Ärendehantering för förmånen graviditetspenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 25,
+    "name": "Självbetjäning graviditetspenning",
+    "shortName": "SB-GRA25",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under avveckling",
+    "technology": ".NET",
+    "launched": "2023",
+    "description": "Självbetjäning för förmånen graviditetspenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 26,
+    "name": "Statistik graviditetspenning",
+    "shortName": "ST-GRA26",
+    "owner": "Avdelningen för barn och familj",
+    "status": "I produktion",
+    "technology": "COBOL / stordator",
+    "launched": "2022",
+    "description": "Statistik för förmånen graviditetspenning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 27,
+    "name": "Självbetjäning underhållsstöd",
+    "shortName": "SB-UND27",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "I produktion",
+    "technology": "COBOL / stordator",
+    "launched": "2019",
+    "description": "Självbetjäning för förmånen underhållsstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 28,
+    "name": "Beslutsstöd underhållsstöd",
+    "shortName": "BS-UND28",
+    "owner": "Avdelningen för kundmöten",
+    "status": "I produktion",
+    "technology": "Vue 2 / Java",
+    "launched": "2010",
+    "description": "Beslutsstöd för förmånen underhållsstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 29,
+    "name": "Utbetalning underhållsstöd",
+    "shortName": "UB-UND29",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under utveckling",
+    "technology": "Vue 2 / Java",
+    "launched": "2009",
+    "description": "Utbetalning för förmånen underhållsstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 30,
+    "name": "Statistik underhållsstöd",
+    "shortName": "ST-UND30",
+    "owner": "Avdelningen för funktionsnedsättning",
+    "status": "Under utveckling",
+    "technology": "COBOL / stordator",
+    "launched": "2016",
+    "description": "Statistik för förmånen underhållsstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 31,
+    "name": "Ärendehantering bilstöd",
+    "shortName": "ÄH-BIL31",
+    "owner": "Avdelningen för kundmöten",
+    "status": "Under utveckling",
+    "technology": ".NET",
+    "launched": "2009",
+    "description": "Ärendehantering för förmånen bilstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 32,
+    "name": "Självbetjäning bilstöd",
+    "shortName": "SB-BIL32",
+    "owner": "IT-avdelningen",
+    "status": "I produktion",
+    "technology": "COBOL / stordator",
+    "launched": "2021",
+    "description": "Självbetjäning för förmånen bilstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 33,
+    "name": "Beslutsstöd bilstöd",
+    "shortName": "BS-BIL33",
+    "owner": "Avdelningen för barn och familj",
+    "status": "Avvecklad",
+    "technology": "Java EE",
+    "launched": "2015",
+    "description": "Beslutsstöd för förmånen bilstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 34,
+    "name": "Utbetalning bilstöd",
+    "shortName": "UB-BIL34",
+    "owner": "IT-avdelningen",
+    "status": "I produktion",
+    "technology": ".NET",
+    "launched": "2013",
+    "description": "Utbetalning för förmånen bilstöd. Fiktiv applikation för demo."
+  },
+  {
+    "id": 35,
+    "name": "Beslutsstöd handikappersättning",
+    "shortName": "BS-HAN35",
+    "owner": "IT-avdelningen",
+    "status": "Under avveckling",
+    "technology": "Vue 3 / Java",
+    "launched": "2015",
+    "description": "Beslutsstöd för förmånen handikappersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 36,
+    "name": "Utbetalning handikappersättning",
+    "shortName": "UB-HAN36",
+    "owner": "Avdelningen för sjukförsäkring",
+    "status": "I produktion",
+    "technology": "Vue 3 / Kotlin",
+    "launched": "2010",
+    "description": "Utbetalning för förmånen handikappersättning. Fiktiv applikation för demo."
+  },
+  {
+    "id": 37,
+    "name": "Statistik handikappersättning",
+    "shortName": "ST-HAN37",
+    "owner": "Avdelningen för sjukförsäkring",
+    "status": "Under utveckling",
+    "technology": "COBOL / stordator",
+    "launched": "2010",
+    "description": "Statistik för förmånen handikappersättning. Fiktiv applikation för demo."
+  }
+]

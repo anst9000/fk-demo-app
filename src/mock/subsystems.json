@@ -1,0 +1,1692 @@
+[
+  {
+    "id": 1,
+    "name": "Beräkning – Ärendehantering föräldrapenning",
+    "code": "ÄH-FOR01-BER",
+    "applicationId": 1,
+    "team": "Team Hav",
+    "environment": "Produktion",
+    "version": "2.0.13",
+    "lastDeployed": "2026-05-16"
+  },
+  {
+    "id": 2,
+    "name": "Behörighet – Ärendehantering föräldrapenning",
+    "code": "ÄH-FOR01-BEH",
+    "applicationId": 1,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "1.1.9",
+    "lastDeployed": "2026-01-20"
+  },
+  {
+    "id": 3,
+    "name": "Arkivering – Ärendehantering föräldrapenning",
+    "code": "ÄH-FOR01-ARK",
+    "applicationId": 1,
+    "team": "Team Cirrus",
+    "environment": "Produktion",
+    "version": "2.3.9",
+    "lastDeployed": "2026-06-09"
+  },
+  {
+    "id": 4,
+    "name": "Dokument – Ärendehantering föräldrapenning",
+    "code": "ÄH-FOR01-DOK",
+    "applicationId": 1,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "2.7.15",
+    "lastDeployed": "2026-06-04"
+  },
+  {
+    "id": 5,
+    "name": "Inläsning – Ärendehantering föräldrapenning",
+    "code": "ÄH-FOR01-INL",
+    "applicationId": 1,
+    "team": "Team Falk",
+    "environment": "Utveckling",
+    "version": "1.1.6",
+    "lastDeployed": "2026-03-10"
+  },
+  {
+    "id": 6,
+    "name": "Beslut – Ärendehantering föräldrapenning",
+    "code": "ÄH-FOR01-BES",
+    "applicationId": 1,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "5.5.17",
+    "lastDeployed": "2026-06-07"
+  },
+  {
+    "id": 7,
+    "name": "Behörighet – Självbetjäning föräldrapenning",
+    "code": "SB-FOR02-BEH",
+    "applicationId": 2,
+    "team": "Team Ek",
+    "environment": "Test",
+    "version": "4.9.12",
+    "lastDeployed": "2026-08-02"
+  },
+  {
+    "id": 8,
+    "name": "Rapportering – Självbetjäning föräldrapenning",
+    "code": "SB-FOR02-RAP",
+    "applicationId": 2,
+    "team": "Team Cirrus",
+    "environment": "Utveckling",
+    "version": "3.8.19",
+    "lastDeployed": "2026-10-17"
+  },
+  {
+    "id": 9,
+    "name": "Integration – Självbetjäning föräldrapenning",
+    "code": "SB-FOR02-INT",
+    "applicationId": 2,
+    "team": "Team Ankan",
+    "environment": "Utveckling",
+    "version": "1.6.0",
+    "lastDeployed": "2026-10-24"
+  },
+  {
+    "id": 10,
+    "name": "Rapportering – Statistik föräldrapenning",
+    "code": "ST-FOR03-RAP",
+    "applicationId": 3,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "3.1.10",
+    "lastDeployed": "2026-01-16"
+  },
+  {
+    "id": 11,
+    "name": "Utbetalning – Statistik föräldrapenning",
+    "code": "ST-FOR03-UTB",
+    "applicationId": 3,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "4.7.18",
+    "lastDeployed": "2026-04-23"
+  },
+  {
+    "id": 12,
+    "name": "Integration – Statistik föräldrapenning",
+    "code": "ST-FOR03-INT",
+    "applicationId": 3,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "3.5.1",
+    "lastDeployed": "2026-03-25"
+  },
+  {
+    "id": 13,
+    "name": "Beräkning – Ärendehantering sjukpenning",
+    "code": "ÄH-SJU04-BER",
+    "applicationId": 4,
+    "team": "Team Cirrus",
+    "environment": "Produktion",
+    "version": "3.9.10",
+    "lastDeployed": "2026-06-29"
+  },
+  {
+    "id": 14,
+    "name": "Arkivering – Ärendehantering sjukpenning",
+    "code": "ÄH-SJU04-ARK",
+    "applicationId": 4,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "3.7.1",
+    "lastDeployed": "2026-02-17"
+  },
+  {
+    "id": 15,
+    "name": "Kommunikation – Ärendehantering sjukpenning",
+    "code": "ÄH-SJU04-KOM",
+    "applicationId": 4,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "1.1.15",
+    "lastDeployed": "2026-09-01"
+  },
+  {
+    "id": 16,
+    "name": "Dokument – Självbetjäning sjukpenning",
+    "code": "SB-SJU05-DOK",
+    "applicationId": 5,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "2.6.13",
+    "lastDeployed": "2026-05-19"
+  },
+  {
+    "id": 17,
+    "name": "Behörighet – Självbetjäning sjukpenning",
+    "code": "SB-SJU05-BEH",
+    "applicationId": 5,
+    "team": "Team Björk",
+    "environment": "Produktion",
+    "version": "1.8.18",
+    "lastDeployed": "2026-01-31"
+  },
+  {
+    "id": 18,
+    "name": "Utbetalning – Självbetjäning sjukpenning",
+    "code": "SB-SJU05-UTB",
+    "applicationId": 5,
+    "team": "Team Cirrus",
+    "environment": "Utveckling",
+    "version": "5.1.4",
+    "lastDeployed": "2026-02-04"
+  },
+  {
+    "id": 19,
+    "name": "Integration – Självbetjäning sjukpenning",
+    "code": "SB-SJU05-INT",
+    "applicationId": 5,
+    "team": "Team Hav",
+    "environment": "Produktion",
+    "version": "4.9.19",
+    "lastDeployed": "2026-07-20"
+  },
+  {
+    "id": 20,
+    "name": "Rapportering – Självbetjäning sjukpenning",
+    "code": "SB-SJU05-RAP",
+    "applicationId": 5,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "4.5.2",
+    "lastDeployed": "2026-03-29"
+  },
+  {
+    "id": 21,
+    "name": "Rapportering – Beslutsstöd sjukpenning",
+    "code": "BS-SJU06-RAP",
+    "applicationId": 6,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "1.6.5",
+    "lastDeployed": "2026-11-05"
+  },
+  {
+    "id": 22,
+    "name": "Behörighet – Beslutsstöd sjukpenning",
+    "code": "BS-SJU06-BEH",
+    "applicationId": 6,
+    "team": "Team Björk",
+    "environment": "Utveckling",
+    "version": "3.1.15",
+    "lastDeployed": "2026-01-13"
+  },
+  {
+    "id": 23,
+    "name": "Inläsning – Beslutsstöd sjukpenning",
+    "code": "BS-SJU06-INL",
+    "applicationId": 6,
+    "team": "Team Cirrus",
+    "environment": "Utveckling",
+    "version": "5.1.11",
+    "lastDeployed": "2026-07-07"
+  },
+  {
+    "id": 24,
+    "name": "Integration – Beslutsstöd sjukpenning",
+    "code": "BS-SJU06-INT",
+    "applicationId": 6,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "2.1.13",
+    "lastDeployed": "2026-04-02"
+  },
+  {
+    "id": 25,
+    "name": "Beräkning – Beslutsstöd sjukpenning",
+    "code": "BS-SJU06-BER",
+    "applicationId": 6,
+    "team": "Team Ankan",
+    "environment": "Utveckling",
+    "version": "3.8.17",
+    "lastDeployed": "2026-10-20"
+  },
+  {
+    "id": 26,
+    "name": "Arkivering – Beslutsstöd sjukpenning",
+    "code": "BS-SJU06-ARK",
+    "applicationId": 6,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "2.5.1",
+    "lastDeployed": "2026-01-27"
+  },
+  {
+    "id": 27,
+    "name": "Beräkning – Utbetalning sjukpenning",
+    "code": "UB-SJU07-BER",
+    "applicationId": 7,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "4.0.12",
+    "lastDeployed": "2026-05-23"
+  },
+  {
+    "id": 28,
+    "name": "Behörighet – Utbetalning sjukpenning",
+    "code": "UB-SJU07-BEH",
+    "applicationId": 7,
+    "team": "Team Ankan",
+    "environment": "Test",
+    "version": "5.6.11",
+    "lastDeployed": "2026-02-10"
+  },
+  {
+    "id": 29,
+    "name": "Beslut – Utbetalning sjukpenning",
+    "code": "UB-SJU07-BES",
+    "applicationId": 7,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "1.0.11",
+    "lastDeployed": "2026-02-04"
+  },
+  {
+    "id": 30,
+    "name": "Kommunikation – Utbetalning sjukpenning",
+    "code": "UB-SJU07-KOM",
+    "applicationId": 7,
+    "team": "Team Ankan",
+    "environment": "Utveckling",
+    "version": "1.3.2",
+    "lastDeployed": "2026-11-05"
+  },
+  {
+    "id": 31,
+    "name": "Inläsning – Statistik sjukpenning",
+    "code": "ST-SJU08-INL",
+    "applicationId": 8,
+    "team": "Team Delta",
+    "environment": "Utveckling",
+    "version": "1.1.18",
+    "lastDeployed": "2026-10-28"
+  },
+  {
+    "id": 32,
+    "name": "Kommunikation – Statistik sjukpenning",
+    "code": "ST-SJU08-KOM",
+    "applicationId": 8,
+    "team": "Team Gran",
+    "environment": "Test",
+    "version": "5.6.13",
+    "lastDeployed": "2026-04-22"
+  },
+  {
+    "id": 33,
+    "name": "Dokument – Statistik sjukpenning",
+    "code": "ST-SJU08-DOK",
+    "applicationId": 8,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "5.9.5",
+    "lastDeployed": "2026-02-20"
+  },
+  {
+    "id": 34,
+    "name": "Utbetalning – Statistik sjukpenning",
+    "code": "ST-SJU08-UTB",
+    "applicationId": 8,
+    "team": "Team Ek",
+    "environment": "Utveckling",
+    "version": "2.6.17",
+    "lastDeployed": "2026-07-07"
+  },
+  {
+    "id": 35,
+    "name": "Rapportering – Statistik sjukpenning",
+    "code": "ST-SJU08-RAP",
+    "applicationId": 8,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "1.9.8",
+    "lastDeployed": "2026-04-09"
+  },
+  {
+    "id": 36,
+    "name": "Beräkning – Statistik sjukpenning",
+    "code": "ST-SJU08-BER",
+    "applicationId": 8,
+    "team": "Team Cirrus",
+    "environment": "Utveckling",
+    "version": "5.5.12",
+    "lastDeployed": "2026-08-31"
+  },
+  {
+    "id": 37,
+    "name": "Rapportering – Ärendehantering bostadsbidrag",
+    "code": "ÄH-BOS09-RAP",
+    "applicationId": 9,
+    "team": "Team Ek",
+    "environment": "Test",
+    "version": "1.2.10",
+    "lastDeployed": "2026-04-24"
+  },
+  {
+    "id": 38,
+    "name": "Behörighet – Ärendehantering bostadsbidrag",
+    "code": "ÄH-BOS09-BEH",
+    "applicationId": 9,
+    "team": "Team Hav",
+    "environment": "Produktion",
+    "version": "1.3.0",
+    "lastDeployed": "2026-03-31"
+  },
+  {
+    "id": 39,
+    "name": "Inläsning – Ärendehantering bostadsbidrag",
+    "code": "ÄH-BOS09-INL",
+    "applicationId": 9,
+    "team": "Team Björk",
+    "environment": "Utveckling",
+    "version": "1.1.11",
+    "lastDeployed": "2026-02-21"
+  },
+  {
+    "id": 40,
+    "name": "Arkivering – Ärendehantering bostadsbidrag",
+    "code": "ÄH-BOS09-ARK",
+    "applicationId": 9,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "2.6.13",
+    "lastDeployed": "2026-07-24"
+  },
+  {
+    "id": 41,
+    "name": "Dokument – Självbetjäning bostadsbidrag",
+    "code": "SB-BOS10-DOK",
+    "applicationId": 10,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "1.3.5",
+    "lastDeployed": "2026-10-22"
+  },
+  {
+    "id": 42,
+    "name": "Beslut – Självbetjäning bostadsbidrag",
+    "code": "SB-BOS10-BES",
+    "applicationId": 10,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "2.6.3",
+    "lastDeployed": "2026-04-11"
+  },
+  {
+    "id": 43,
+    "name": "Arkivering – Självbetjäning bostadsbidrag",
+    "code": "SB-BOS10-ARK",
+    "applicationId": 10,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "4.5.7",
+    "lastDeployed": "2026-03-31"
+  },
+  {
+    "id": 44,
+    "name": "Utbetalning – Självbetjäning bostadsbidrag",
+    "code": "SB-BOS10-UTB",
+    "applicationId": 10,
+    "team": "Team Hav",
+    "environment": "Produktion",
+    "version": "3.7.0",
+    "lastDeployed": "2026-10-15"
+  },
+  {
+    "id": 45,
+    "name": "Kommunikation – Självbetjäning bostadsbidrag",
+    "code": "SB-BOS10-KOM",
+    "applicationId": 10,
+    "team": "Team Ankan",
+    "environment": "Test",
+    "version": "3.1.9",
+    "lastDeployed": "2026-02-16"
+  },
+  {
+    "id": 46,
+    "name": "Rapportering – Beslutsstöd bostadsbidrag",
+    "code": "BS-BOS11-RAP",
+    "applicationId": 11,
+    "team": "Team Hav",
+    "environment": "Produktion",
+    "version": "1.2.1",
+    "lastDeployed": "2026-08-10"
+  },
+  {
+    "id": 47,
+    "name": "Integration – Beslutsstöd bostadsbidrag",
+    "code": "BS-BOS11-INT",
+    "applicationId": 11,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "3.0.9",
+    "lastDeployed": "2026-06-22"
+  },
+  {
+    "id": 48,
+    "name": "Utbetalning – Beslutsstöd bostadsbidrag",
+    "code": "BS-BOS11-UTB",
+    "applicationId": 11,
+    "team": "Team Ankan",
+    "environment": "Utveckling",
+    "version": "3.1.7",
+    "lastDeployed": "2026-06-04"
+  },
+  {
+    "id": 49,
+    "name": "Beräkning – Beslutsstöd bostadsbidrag",
+    "code": "BS-BOS11-BER",
+    "applicationId": 11,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "4.8.13",
+    "lastDeployed": "2026-05-21"
+  },
+  {
+    "id": 50,
+    "name": "Arkivering – Utbetalning bostadsbidrag",
+    "code": "UB-BOS12-ARK",
+    "applicationId": 12,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "4.5.13",
+    "lastDeployed": "2026-01-03"
+  },
+  {
+    "id": 51,
+    "name": "Beslut – Utbetalning bostadsbidrag",
+    "code": "UB-BOS12-BES",
+    "applicationId": 12,
+    "team": "Team Falk",
+    "environment": "Produktion",
+    "version": "4.6.16",
+    "lastDeployed": "2026-03-18"
+  },
+  {
+    "id": 52,
+    "name": "Integration – Utbetalning bostadsbidrag",
+    "code": "UB-BOS12-INT",
+    "applicationId": 12,
+    "team": "Team Cirrus",
+    "environment": "Utveckling",
+    "version": "5.6.18",
+    "lastDeployed": "2026-04-24"
+  },
+  {
+    "id": 53,
+    "name": "Behörighet – Utbetalning bostadsbidrag",
+    "code": "UB-BOS12-BEH",
+    "applicationId": 12,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "1.0.8",
+    "lastDeployed": "2026-08-17"
+  },
+  {
+    "id": 54,
+    "name": "Utbetalning – Statistik bostadsbidrag",
+    "code": "ST-BOS13-UTB",
+    "applicationId": 13,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "5.2.7",
+    "lastDeployed": "2026-07-06"
+  },
+  {
+    "id": 55,
+    "name": "Behörighet – Statistik bostadsbidrag",
+    "code": "ST-BOS13-BEH",
+    "applicationId": 13,
+    "team": "Team Ankan",
+    "environment": "Utveckling",
+    "version": "3.2.11",
+    "lastDeployed": "2026-04-03"
+  },
+  {
+    "id": 56,
+    "name": "Beräkning – Statistik bostadsbidrag",
+    "code": "ST-BOS13-BER",
+    "applicationId": 13,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "3.3.3",
+    "lastDeployed": "2026-02-02"
+  },
+  {
+    "id": 57,
+    "name": "Kommunikation – Statistik bostadsbidrag",
+    "code": "ST-BOS13-KOM",
+    "applicationId": 13,
+    "team": "Team Björk",
+    "environment": "Produktion",
+    "version": "2.3.8",
+    "lastDeployed": "2026-08-02"
+  },
+  {
+    "id": 58,
+    "name": "Beslut – Statistik bostadsbidrag",
+    "code": "ST-BOS13-BES",
+    "applicationId": 13,
+    "team": "Team Falk",
+    "environment": "Utveckling",
+    "version": "4.2.10",
+    "lastDeployed": "2026-05-06"
+  },
+  {
+    "id": 59,
+    "name": "Behörighet – Beslutsstöd barnbidrag",
+    "code": "BS-BAR14-BEH",
+    "applicationId": 14,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "1.0.2",
+    "lastDeployed": "2026-05-24"
+  },
+  {
+    "id": 60,
+    "name": "Dokument – Beslutsstöd barnbidrag",
+    "code": "BS-BAR14-DOK",
+    "applicationId": 14,
+    "team": "Team Gran",
+    "environment": "Test",
+    "version": "3.4.12",
+    "lastDeployed": "2026-01-17"
+  },
+  {
+    "id": 61,
+    "name": "Beräkning – Beslutsstöd barnbidrag",
+    "code": "BS-BAR14-BER",
+    "applicationId": 14,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "4.4.16",
+    "lastDeployed": "2026-07-29"
+  },
+  {
+    "id": 62,
+    "name": "Integration – Beslutsstöd barnbidrag",
+    "code": "BS-BAR14-INT",
+    "applicationId": 14,
+    "team": "Team Björk",
+    "environment": "Produktion",
+    "version": "4.2.7",
+    "lastDeployed": "2026-03-06"
+  },
+  {
+    "id": 63,
+    "name": "Kommunikation – Beslutsstöd barnbidrag",
+    "code": "BS-BAR14-KOM",
+    "applicationId": 14,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "2.4.0",
+    "lastDeployed": "2026-01-03"
+  },
+  {
+    "id": 64,
+    "name": "Utbetalning – Beslutsstöd barnbidrag",
+    "code": "BS-BAR14-UTB",
+    "applicationId": 14,
+    "team": "Team Gran",
+    "environment": "Test",
+    "version": "1.5.4",
+    "lastDeployed": "2026-06-25"
+  },
+  {
+    "id": 65,
+    "name": "Integration – Utbetalning barnbidrag",
+    "code": "UB-BAR15-INT",
+    "applicationId": 15,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "4.4.10",
+    "lastDeployed": "2026-07-09"
+  },
+  {
+    "id": 66,
+    "name": "Beräkning – Utbetalning barnbidrag",
+    "code": "UB-BAR15-BER",
+    "applicationId": 15,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "5.8.7",
+    "lastDeployed": "2026-08-10"
+  },
+  {
+    "id": 67,
+    "name": "Arkivering – Utbetalning barnbidrag",
+    "code": "UB-BAR15-ARK",
+    "applicationId": 15,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "1.0.8",
+    "lastDeployed": "2026-09-17"
+  },
+  {
+    "id": 68,
+    "name": "Behörighet – Utbetalning barnbidrag",
+    "code": "UB-BAR15-BEH",
+    "applicationId": 15,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "5.5.19",
+    "lastDeployed": "2026-03-06"
+  },
+  {
+    "id": 69,
+    "name": "Rapportering – Utbetalning barnbidrag",
+    "code": "UB-BAR15-RAP",
+    "applicationId": 15,
+    "team": "Team Gran",
+    "environment": "Test",
+    "version": "5.7.4",
+    "lastDeployed": "2026-04-28"
+  },
+  {
+    "id": 70,
+    "name": "Utbetalning – Utbetalning barnbidrag",
+    "code": "UB-BAR15-UTB",
+    "applicationId": 15,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "1.1.13",
+    "lastDeployed": "2026-05-22"
+  },
+  {
+    "id": 71,
+    "name": "Dokument – Ärendehantering aktivitetsersättning",
+    "code": "ÄH-AKT16-DOK",
+    "applicationId": 16,
+    "team": "Team Cirrus",
+    "environment": "Produktion",
+    "version": "5.7.2",
+    "lastDeployed": "2026-04-15"
+  },
+  {
+    "id": 72,
+    "name": "Utbetalning – Ärendehantering aktivitetsersättning",
+    "code": "ÄH-AKT16-UTB",
+    "applicationId": 16,
+    "team": "Team Hav",
+    "environment": "Produktion",
+    "version": "2.0.1",
+    "lastDeployed": "2026-02-19"
+  },
+  {
+    "id": 73,
+    "name": "Behörighet – Ärendehantering aktivitetsersättning",
+    "code": "ÄH-AKT16-BEH",
+    "applicationId": 16,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "4.8.9",
+    "lastDeployed": "2026-09-05"
+  },
+  {
+    "id": 74,
+    "name": "Inläsning – Självbetjäning aktivitetsersättning",
+    "code": "SB-AKT17-INL",
+    "applicationId": 17,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "1.9.18",
+    "lastDeployed": "2026-03-05"
+  },
+  {
+    "id": 75,
+    "name": "Beslut – Självbetjäning aktivitetsersättning",
+    "code": "SB-AKT17-BES",
+    "applicationId": 17,
+    "team": "Team Cirrus",
+    "environment": "Utveckling",
+    "version": "5.6.1",
+    "lastDeployed": "2026-05-09"
+  },
+  {
+    "id": 76,
+    "name": "Dokument – Självbetjäning aktivitetsersättning",
+    "code": "SB-AKT17-DOK",
+    "applicationId": 17,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "2.9.16",
+    "lastDeployed": "2026-09-25"
+  },
+  {
+    "id": 77,
+    "name": "Arkivering – Beslutsstöd aktivitetsersättning",
+    "code": "BS-AKT18-ARK",
+    "applicationId": 18,
+    "team": "Team Björk",
+    "environment": "Produktion",
+    "version": "4.3.0",
+    "lastDeployed": "2026-09-17"
+  },
+  {
+    "id": 78,
+    "name": "Dokument – Beslutsstöd aktivitetsersättning",
+    "code": "BS-AKT18-DOK",
+    "applicationId": 18,
+    "team": "Team Ek",
+    "environment": "Test",
+    "version": "4.7.16",
+    "lastDeployed": "2026-08-06"
+  },
+  {
+    "id": 79,
+    "name": "Beslut – Beslutsstöd aktivitetsersättning",
+    "code": "BS-AKT18-BES",
+    "applicationId": 18,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "4.9.7",
+    "lastDeployed": "2026-02-09"
+  },
+  {
+    "id": 80,
+    "name": "Rapportering – Beslutsstöd aktivitetsersättning",
+    "code": "BS-AKT18-RAP",
+    "applicationId": 18,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "4.5.13",
+    "lastDeployed": "2026-03-31"
+  },
+  {
+    "id": 81,
+    "name": "Kommunikation – Beslutsstöd aktivitetsersättning",
+    "code": "BS-AKT18-KOM",
+    "applicationId": 18,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "1.7.13",
+    "lastDeployed": "2026-01-24"
+  },
+  {
+    "id": 82,
+    "name": "Utbetalning – Beslutsstöd aktivitetsersättning",
+    "code": "BS-AKT18-UTB",
+    "applicationId": 18,
+    "team": "Team Ankan",
+    "environment": "Test",
+    "version": "1.0.15",
+    "lastDeployed": "2026-03-11"
+  },
+  {
+    "id": 83,
+    "name": "Beräkning – Utbetalning aktivitetsersättning",
+    "code": "UB-AKT19-BER",
+    "applicationId": 19,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "3.8.11",
+    "lastDeployed": "2026-04-06"
+  },
+  {
+    "id": 84,
+    "name": "Utbetalning – Utbetalning aktivitetsersättning",
+    "code": "UB-AKT19-UTB",
+    "applicationId": 19,
+    "team": "Team Gran",
+    "environment": "Utveckling",
+    "version": "1.9.2",
+    "lastDeployed": "2026-10-24"
+  },
+  {
+    "id": 85,
+    "name": "Integration – Utbetalning aktivitetsersättning",
+    "code": "UB-AKT19-INT",
+    "applicationId": 19,
+    "team": "Team Falk",
+    "environment": "Utveckling",
+    "version": "3.6.16",
+    "lastDeployed": "2026-03-03"
+  },
+  {
+    "id": 86,
+    "name": "Behörighet – Utbetalning aktivitetsersättning",
+    "code": "UB-AKT19-BEH",
+    "applicationId": 19,
+    "team": "Team Björk",
+    "environment": "Utveckling",
+    "version": "3.7.8",
+    "lastDeployed": "2026-03-19"
+  },
+  {
+    "id": 87,
+    "name": "Inläsning – Utbetalning aktivitetsersättning",
+    "code": "UB-AKT19-INL",
+    "applicationId": 19,
+    "team": "Team Delta",
+    "environment": "Utveckling",
+    "version": "2.1.15",
+    "lastDeployed": "2026-08-19"
+  },
+  {
+    "id": 88,
+    "name": "Arkivering – Utbetalning aktivitetsersättning",
+    "code": "UB-AKT19-ARK",
+    "applicationId": 19,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "3.4.4",
+    "lastDeployed": "2026-06-08"
+  },
+  {
+    "id": 89,
+    "name": "Dokument – Ärendehantering assistansersättning",
+    "code": "ÄH-ASS20-DOK",
+    "applicationId": 20,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "5.5.10",
+    "lastDeployed": "2026-05-12"
+  },
+  {
+    "id": 90,
+    "name": "Kommunikation – Ärendehantering assistansersättning",
+    "code": "ÄH-ASS20-KOM",
+    "applicationId": 20,
+    "team": "Team Falk",
+    "environment": "Utveckling",
+    "version": "2.7.4",
+    "lastDeployed": "2026-07-19"
+  },
+  {
+    "id": 91,
+    "name": "Rapportering – Ärendehantering assistansersättning",
+    "code": "ÄH-ASS20-RAP",
+    "applicationId": 20,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "2.4.19",
+    "lastDeployed": "2026-03-10"
+  },
+  {
+    "id": 92,
+    "name": "Beslut – Ärendehantering assistansersättning",
+    "code": "ÄH-ASS20-BES",
+    "applicationId": 20,
+    "team": "Team Gran",
+    "environment": "Utveckling",
+    "version": "1.2.8",
+    "lastDeployed": "2026-07-10"
+  },
+  {
+    "id": 93,
+    "name": "Inläsning – Beslutsstöd assistansersättning",
+    "code": "BS-ASS21-INL",
+    "applicationId": 21,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "2.4.6",
+    "lastDeployed": "2026-03-31"
+  },
+  {
+    "id": 94,
+    "name": "Rapportering – Beslutsstöd assistansersättning",
+    "code": "BS-ASS21-RAP",
+    "applicationId": 21,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "1.4.15",
+    "lastDeployed": "2026-10-03"
+  },
+  {
+    "id": 95,
+    "name": "Dokument – Beslutsstöd assistansersättning",
+    "code": "BS-ASS21-DOK",
+    "applicationId": 21,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "3.7.17",
+    "lastDeployed": "2026-01-31"
+  },
+  {
+    "id": 96,
+    "name": "Behörighet – Beslutsstöd assistansersättning",
+    "code": "BS-ASS21-BEH",
+    "applicationId": 21,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "2.8.9",
+    "lastDeployed": "2026-07-04"
+  },
+  {
+    "id": 97,
+    "name": "Beräkning – Beslutsstöd assistansersättning",
+    "code": "BS-ASS21-BER",
+    "applicationId": 21,
+    "team": "Team Ankan",
+    "environment": "Test",
+    "version": "5.2.5",
+    "lastDeployed": "2026-04-16"
+  },
+  {
+    "id": 98,
+    "name": "Kommunikation – Beslutsstöd assistansersättning",
+    "code": "BS-ASS21-KOM",
+    "applicationId": 21,
+    "team": "Team Björk",
+    "environment": "Produktion",
+    "version": "1.1.7",
+    "lastDeployed": "2026-06-28"
+  },
+  {
+    "id": 99,
+    "name": "Inläsning – Utbetalning assistansersättning",
+    "code": "UB-ASS22-INL",
+    "applicationId": 22,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "5.1.17",
+    "lastDeployed": "2026-01-04"
+  },
+  {
+    "id": 100,
+    "name": "Utbetalning – Utbetalning assistansersättning",
+    "code": "UB-ASS22-UTB",
+    "applicationId": 22,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "2.7.19",
+    "lastDeployed": "2026-06-27"
+  },
+  {
+    "id": 101,
+    "name": "Beräkning – Utbetalning assistansersättning",
+    "code": "UB-ASS22-BER",
+    "applicationId": 22,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "4.9.6",
+    "lastDeployed": "2026-05-27"
+  },
+  {
+    "id": 102,
+    "name": "Rapportering – Statistik assistansersättning",
+    "code": "ST-ASS23-RAP",
+    "applicationId": 23,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "4.7.16",
+    "lastDeployed": "2026-08-28"
+  },
+  {
+    "id": 103,
+    "name": "Dokument – Statistik assistansersättning",
+    "code": "ST-ASS23-DOK",
+    "applicationId": 23,
+    "team": "Team Delta",
+    "environment": "Utveckling",
+    "version": "4.6.18",
+    "lastDeployed": "2026-06-15"
+  },
+  {
+    "id": 104,
+    "name": "Beräkning – Statistik assistansersättning",
+    "code": "ST-ASS23-BER",
+    "applicationId": 23,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "3.9.14",
+    "lastDeployed": "2026-10-01"
+  },
+  {
+    "id": 105,
+    "name": "Behörighet – Statistik assistansersättning",
+    "code": "ST-ASS23-BEH",
+    "applicationId": 23,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "2.7.11",
+    "lastDeployed": "2026-07-02"
+  },
+  {
+    "id": 106,
+    "name": "Beslut – Statistik assistansersättning",
+    "code": "ST-ASS23-BES",
+    "applicationId": 23,
+    "team": "Team Gran",
+    "environment": "Test",
+    "version": "4.4.12",
+    "lastDeployed": "2026-06-23"
+  },
+  {
+    "id": 107,
+    "name": "Arkivering – Ärendehantering graviditetspenning",
+    "code": "ÄH-GRA24-ARK",
+    "applicationId": 24,
+    "team": "Team Cirrus",
+    "environment": "Utveckling",
+    "version": "3.0.18",
+    "lastDeployed": "2026-03-13"
+  },
+  {
+    "id": 108,
+    "name": "Inläsning – Ärendehantering graviditetspenning",
+    "code": "ÄH-GRA24-INL",
+    "applicationId": 24,
+    "team": "Team Delta",
+    "environment": "Utveckling",
+    "version": "3.8.10",
+    "lastDeployed": "2026-03-09"
+  },
+  {
+    "id": 109,
+    "name": "Beslut – Ärendehantering graviditetspenning",
+    "code": "ÄH-GRA24-BES",
+    "applicationId": 24,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "1.0.14",
+    "lastDeployed": "2026-10-13"
+  },
+  {
+    "id": 110,
+    "name": "Inläsning – Självbetjäning graviditetspenning",
+    "code": "SB-GRA25-INL",
+    "applicationId": 25,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "2.4.11",
+    "lastDeployed": "2026-02-12"
+  },
+  {
+    "id": 111,
+    "name": "Behörighet – Självbetjäning graviditetspenning",
+    "code": "SB-GRA25-BEH",
+    "applicationId": 25,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "1.3.0",
+    "lastDeployed": "2026-05-28"
+  },
+  {
+    "id": 112,
+    "name": "Arkivering – Självbetjäning graviditetspenning",
+    "code": "SB-GRA25-ARK",
+    "applicationId": 25,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "1.4.19",
+    "lastDeployed": "2026-10-18"
+  },
+  {
+    "id": 113,
+    "name": "Rapportering – Självbetjäning graviditetspenning",
+    "code": "SB-GRA25-RAP",
+    "applicationId": 25,
+    "team": "Team Ankan",
+    "environment": "Test",
+    "version": "3.2.6",
+    "lastDeployed": "2026-02-19"
+  },
+  {
+    "id": 114,
+    "name": "Integration – Självbetjäning graviditetspenning",
+    "code": "SB-GRA25-INT",
+    "applicationId": 25,
+    "team": "Team Ek",
+    "environment": "Test",
+    "version": "4.7.7",
+    "lastDeployed": "2026-10-15"
+  },
+  {
+    "id": 115,
+    "name": "Integration – Statistik graviditetspenning",
+    "code": "ST-GRA26-INT",
+    "applicationId": 26,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "1.9.5",
+    "lastDeployed": "2026-10-03"
+  },
+  {
+    "id": 116,
+    "name": "Beräkning – Statistik graviditetspenning",
+    "code": "ST-GRA26-BER",
+    "applicationId": 26,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "1.5.15",
+    "lastDeployed": "2026-04-02"
+  },
+  {
+    "id": 117,
+    "name": "Inläsning – Statistik graviditetspenning",
+    "code": "ST-GRA26-INL",
+    "applicationId": 26,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "4.2.8",
+    "lastDeployed": "2026-03-15"
+  },
+  {
+    "id": 118,
+    "name": "Rapportering – Statistik graviditetspenning",
+    "code": "ST-GRA26-RAP",
+    "applicationId": 26,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "1.7.6",
+    "lastDeployed": "2026-06-04"
+  },
+  {
+    "id": 119,
+    "name": "Beslut – Statistik graviditetspenning",
+    "code": "ST-GRA26-BES",
+    "applicationId": 26,
+    "team": "Team Gran",
+    "environment": "Utveckling",
+    "version": "2.3.13",
+    "lastDeployed": "2026-09-09"
+  },
+  {
+    "id": 120,
+    "name": "Beräkning – Självbetjäning underhållsstöd",
+    "code": "SB-UND27-BER",
+    "applicationId": 27,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "4.7.4",
+    "lastDeployed": "2026-09-05"
+  },
+  {
+    "id": 121,
+    "name": "Utbetalning – Självbetjäning underhållsstöd",
+    "code": "SB-UND27-UTB",
+    "applicationId": 27,
+    "team": "Team Ankan",
+    "environment": "Utveckling",
+    "version": "3.7.7",
+    "lastDeployed": "2026-02-28"
+  },
+  {
+    "id": 122,
+    "name": "Integration – Självbetjäning underhållsstöd",
+    "code": "SB-UND27-INT",
+    "applicationId": 27,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "2.3.19",
+    "lastDeployed": "2026-06-02"
+  },
+  {
+    "id": 123,
+    "name": "Kommunikation – Självbetjäning underhållsstöd",
+    "code": "SB-UND27-KOM",
+    "applicationId": 27,
+    "team": "Team Ek",
+    "environment": "Test",
+    "version": "4.8.4",
+    "lastDeployed": "2026-02-02"
+  },
+  {
+    "id": 124,
+    "name": "Beräkning – Beslutsstöd underhållsstöd",
+    "code": "BS-UND28-BER",
+    "applicationId": 28,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "1.3.0",
+    "lastDeployed": "2026-02-21"
+  },
+  {
+    "id": 125,
+    "name": "Dokument – Beslutsstöd underhållsstöd",
+    "code": "BS-UND28-DOK",
+    "applicationId": 28,
+    "team": "Team Falk",
+    "environment": "Produktion",
+    "version": "2.1.10",
+    "lastDeployed": "2026-06-05"
+  },
+  {
+    "id": 126,
+    "name": "Kommunikation – Beslutsstöd underhållsstöd",
+    "code": "BS-UND28-KOM",
+    "applicationId": 28,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "4.5.5",
+    "lastDeployed": "2026-09-17"
+  },
+  {
+    "id": 127,
+    "name": "Kommunikation – Utbetalning underhållsstöd",
+    "code": "UB-UND29-KOM",
+    "applicationId": 29,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "4.7.0",
+    "lastDeployed": "2026-08-16"
+  },
+  {
+    "id": 128,
+    "name": "Rapportering – Utbetalning underhållsstöd",
+    "code": "UB-UND29-RAP",
+    "applicationId": 29,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "5.1.18",
+    "lastDeployed": "2026-08-24"
+  },
+  {
+    "id": 129,
+    "name": "Dokument – Utbetalning underhållsstöd",
+    "code": "UB-UND29-DOK",
+    "applicationId": 29,
+    "team": "Team Björk",
+    "environment": "Utveckling",
+    "version": "3.5.4",
+    "lastDeployed": "2026-08-20"
+  },
+  {
+    "id": 130,
+    "name": "Inläsning – Utbetalning underhållsstöd",
+    "code": "UB-UND29-INL",
+    "applicationId": 29,
+    "team": "Team Gran",
+    "environment": "Utveckling",
+    "version": "1.3.0",
+    "lastDeployed": "2026-06-20"
+  },
+  {
+    "id": 131,
+    "name": "Rapportering – Statistik underhållsstöd",
+    "code": "ST-UND30-RAP",
+    "applicationId": 30,
+    "team": "Team Björk",
+    "environment": "Test",
+    "version": "3.4.19",
+    "lastDeployed": "2026-01-02"
+  },
+  {
+    "id": 132,
+    "name": "Integration – Statistik underhållsstöd",
+    "code": "ST-UND30-INT",
+    "applicationId": 30,
+    "team": "Team Gran",
+    "environment": "Utveckling",
+    "version": "2.7.8",
+    "lastDeployed": "2026-08-17"
+  },
+  {
+    "id": 133,
+    "name": "Utbetalning – Statistik underhållsstöd",
+    "code": "ST-UND30-UTB",
+    "applicationId": 30,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "4.0.14",
+    "lastDeployed": "2026-07-18"
+  },
+  {
+    "id": 134,
+    "name": "Beslut – Statistik underhållsstöd",
+    "code": "ST-UND30-BES",
+    "applicationId": 30,
+    "team": "Team Hav",
+    "environment": "Utveckling",
+    "version": "5.8.16",
+    "lastDeployed": "2026-02-20"
+  },
+  {
+    "id": 135,
+    "name": "Dokument – Statistik underhållsstöd",
+    "code": "ST-UND30-DOK",
+    "applicationId": 30,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "2.7.12",
+    "lastDeployed": "2026-07-16"
+  },
+  {
+    "id": 136,
+    "name": "Inläsning – Ärendehantering bilstöd",
+    "code": "ÄH-BIL31-INL",
+    "applicationId": 31,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "2.0.14",
+    "lastDeployed": "2026-09-10"
+  },
+  {
+    "id": 137,
+    "name": "Kommunikation – Ärendehantering bilstöd",
+    "code": "ÄH-BIL31-KOM",
+    "applicationId": 31,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "5.9.5",
+    "lastDeployed": "2026-09-29"
+  },
+  {
+    "id": 138,
+    "name": "Behörighet – Ärendehantering bilstöd",
+    "code": "ÄH-BIL31-BEH",
+    "applicationId": 31,
+    "team": "Team Ek",
+    "environment": "Test",
+    "version": "2.3.19",
+    "lastDeployed": "2026-10-12"
+  },
+  {
+    "id": 139,
+    "name": "Arkivering – Ärendehantering bilstöd",
+    "code": "ÄH-BIL31-ARK",
+    "applicationId": 31,
+    "team": "Team Delta",
+    "environment": "Produktion",
+    "version": "1.4.18",
+    "lastDeployed": "2026-05-07"
+  },
+  {
+    "id": 140,
+    "name": "Integration – Ärendehantering bilstöd",
+    "code": "ÄH-BIL31-INT",
+    "applicationId": 31,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "2.3.3",
+    "lastDeployed": "2026-08-07"
+  },
+  {
+    "id": 141,
+    "name": "Kommunikation – Självbetjäning bilstöd",
+    "code": "SB-BIL32-KOM",
+    "applicationId": 32,
+    "team": "Team Björk",
+    "environment": "Produktion",
+    "version": "4.0.15",
+    "lastDeployed": "2026-01-13"
+  },
+  {
+    "id": 142,
+    "name": "Utbetalning – Självbetjäning bilstöd",
+    "code": "SB-BIL32-UTB",
+    "applicationId": 32,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "4.9.15",
+    "lastDeployed": "2026-04-27"
+  },
+  {
+    "id": 143,
+    "name": "Beräkning – Självbetjäning bilstöd",
+    "code": "SB-BIL32-BER",
+    "applicationId": 32,
+    "team": "Team Björk",
+    "environment": "Utveckling",
+    "version": "4.5.0",
+    "lastDeployed": "2026-10-16"
+  },
+  {
+    "id": 144,
+    "name": "Rapportering – Självbetjäning bilstöd",
+    "code": "SB-BIL32-RAP",
+    "applicationId": 32,
+    "team": "Team Falk",
+    "environment": "Utveckling",
+    "version": "5.6.15",
+    "lastDeployed": "2026-08-14"
+  },
+  {
+    "id": 145,
+    "name": "Dokument – Självbetjäning bilstöd",
+    "code": "SB-BIL32-DOK",
+    "applicationId": 32,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "3.6.18",
+    "lastDeployed": "2026-06-07"
+  },
+  {
+    "id": 146,
+    "name": "Inläsning – Beslutsstöd bilstöd",
+    "code": "BS-BIL33-INL",
+    "applicationId": 33,
+    "team": "Team Cirrus",
+    "environment": "Produktion",
+    "version": "3.6.6",
+    "lastDeployed": "2026-07-27"
+  },
+  {
+    "id": 147,
+    "name": "Behörighet – Beslutsstöd bilstöd",
+    "code": "BS-BIL33-BEH",
+    "applicationId": 33,
+    "team": "Team Falk",
+    "environment": "Produktion",
+    "version": "2.5.0",
+    "lastDeployed": "2026-04-14"
+  },
+  {
+    "id": 148,
+    "name": "Rapportering – Beslutsstöd bilstöd",
+    "code": "BS-BIL33-RAP",
+    "applicationId": 33,
+    "team": "Team Falk",
+    "environment": "Produktion",
+    "version": "2.5.13",
+    "lastDeployed": "2026-03-13"
+  },
+  {
+    "id": 149,
+    "name": "Utbetalning – Beslutsstöd bilstöd",
+    "code": "BS-BIL33-UTB",
+    "applicationId": 33,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "5.9.11",
+    "lastDeployed": "2026-05-06"
+  },
+  {
+    "id": 150,
+    "name": "Beräkning – Beslutsstöd bilstöd",
+    "code": "BS-BIL33-BER",
+    "applicationId": 33,
+    "team": "Team Falk",
+    "environment": "Utveckling",
+    "version": "4.7.3",
+    "lastDeployed": "2026-01-11"
+  },
+  {
+    "id": 151,
+    "name": "Dokument – Utbetalning bilstöd",
+    "code": "UB-BIL34-DOK",
+    "applicationId": 34,
+    "team": "Team Falk",
+    "environment": "Utveckling",
+    "version": "4.9.19",
+    "lastDeployed": "2026-06-29"
+  },
+  {
+    "id": 152,
+    "name": "Rapportering – Utbetalning bilstöd",
+    "code": "UB-BIL34-RAP",
+    "applicationId": 34,
+    "team": "Team Gran",
+    "environment": "Utveckling",
+    "version": "5.6.15",
+    "lastDeployed": "2026-04-17"
+  },
+  {
+    "id": 153,
+    "name": "Utbetalning – Utbetalning bilstöd",
+    "code": "UB-BIL34-UTB",
+    "applicationId": 34,
+    "team": "Team Gran",
+    "environment": "Test",
+    "version": "3.2.1",
+    "lastDeployed": "2026-10-16"
+  },
+  {
+    "id": 154,
+    "name": "Beräkning – Utbetalning bilstöd",
+    "code": "UB-BIL34-BER",
+    "applicationId": 34,
+    "team": "Team Ankan",
+    "environment": "Produktion",
+    "version": "4.3.15",
+    "lastDeployed": "2026-09-09"
+  },
+  {
+    "id": 155,
+    "name": "Behörighet – Utbetalning bilstöd",
+    "code": "UB-BIL34-BEH",
+    "applicationId": 34,
+    "team": "Team Cirrus",
+    "environment": "Produktion",
+    "version": "3.2.16",
+    "lastDeployed": "2026-09-17"
+  },
+  {
+    "id": 156,
+    "name": "Integration – Utbetalning bilstöd",
+    "code": "UB-BIL34-INT",
+    "applicationId": 34,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "1.8.19",
+    "lastDeployed": "2026-02-04"
+  },
+  {
+    "id": 157,
+    "name": "Inläsning – Beslutsstöd handikappersättning",
+    "code": "BS-HAN35-INL",
+    "applicationId": 35,
+    "team": "Team Delta",
+    "environment": "Utveckling",
+    "version": "1.3.0",
+    "lastDeployed": "2026-02-23"
+  },
+  {
+    "id": 158,
+    "name": "Rapportering – Beslutsstöd handikappersättning",
+    "code": "BS-HAN35-RAP",
+    "applicationId": 35,
+    "team": "Team Gran",
+    "environment": "Produktion",
+    "version": "5.4.17",
+    "lastDeployed": "2026-07-11"
+  },
+  {
+    "id": 159,
+    "name": "Utbetalning – Beslutsstöd handikappersättning",
+    "code": "BS-HAN35-UTB",
+    "applicationId": 35,
+    "team": "Team Ek",
+    "environment": "Utveckling",
+    "version": "3.7.0",
+    "lastDeployed": "2026-05-14"
+  },
+  {
+    "id": 160,
+    "name": "Beslut – Beslutsstöd handikappersättning",
+    "code": "BS-HAN35-BES",
+    "applicationId": 35,
+    "team": "Team Falk",
+    "environment": "Test",
+    "version": "4.3.14",
+    "lastDeployed": "2026-06-06"
+  },
+  {
+    "id": 161,
+    "name": "Beräkning – Beslutsstöd handikappersättning",
+    "code": "BS-HAN35-BER",
+    "applicationId": 35,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "5.2.19",
+    "lastDeployed": "2026-05-11"
+  },
+  {
+    "id": 162,
+    "name": "Utbetalning – Utbetalning handikappersättning",
+    "code": "UB-HAN36-UTB",
+    "applicationId": 36,
+    "team": "Team Delta",
+    "environment": "Test",
+    "version": "1.1.9",
+    "lastDeployed": "2026-08-11"
+  },
+  {
+    "id": 163,
+    "name": "Beräkning – Utbetalning handikappersättning",
+    "code": "UB-HAN36-BER",
+    "applicationId": 36,
+    "team": "Team Hav",
+    "environment": "Produktion",
+    "version": "4.6.5",
+    "lastDeployed": "2026-03-29"
+  },
+  {
+    "id": 164,
+    "name": "Rapportering – Utbetalning handikappersättning",
+    "code": "UB-HAN36-RAP",
+    "applicationId": 36,
+    "team": "Team Ek",
+    "environment": "Produktion",
+    "version": "1.5.13",
+    "lastDeployed": "2026-04-07"
+  },
+  {
+    "id": 165,
+    "name": "Behörighet – Statistik handikappersättning",
+    "code": "ST-HAN37-BEH",
+    "applicationId": 37,
+    "team": "Team Falk",
+    "environment": "Produktion",
+    "version": "3.6.10",
+    "lastDeployed": "2026-06-28"
+  },
+  {
+    "id": 166,
+    "name": "Integration – Statistik handikappersättning",
+    "code": "ST-HAN37-INT",
+    "applicationId": 37,
+    "team": "Team Cirrus",
+    "environment": "Test",
+    "version": "3.4.3",
+    "lastDeployed": "2026-10-24"
+  },
+  {
+    "id": 167,
+    "name": "Beräkning – Statistik handikappersättning",
+    "code": "ST-HAN37-BER",
+    "applicationId": 37,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "5.2.6",
+    "lastDeployed": "2026-06-09"
+  },
+  {
+    "id": 168,
+    "name": "Arkivering – Statistik handikappersättning",
+    "code": "ST-HAN37-ARK",
+    "applicationId": 37,
+    "team": "Team Gran",
+    "environment": "Utveckling",
+    "version": "1.7.12",
+    "lastDeployed": "2026-07-18"
+  },
+  {
+    "id": 169,
+    "name": "Dokument – Statistik handikappersättning",
+    "code": "ST-HAN37-DOK",
+    "applicationId": 37,
+    "team": "Team Hav",
+    "environment": "Test",
+    "version": "4.6.9",
+    "lastDeployed": "2026-05-05"
+  }
+]
