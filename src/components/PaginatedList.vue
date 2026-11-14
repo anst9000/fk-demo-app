@@ -7,7 +7,9 @@ import {
     FPaginator,
     FSearchTextField,
     FSelectField,
+    FSortFilterDataset,
     FTable,
+    getTableSortableAttributes,
     type TableColumn,
 } from "@fkui/vue";
 import ColumnSettings from "./ColumnSettings.vue";
@@ -117,6 +119,20 @@ const filteredData = computed<T[]>(() => {
 
 const isFiltered = computed(() => filteredData.value.length !== (data.value?.length ?? 0));
 
+/* ---------- Sorting ---------- */
+
+/** Every column with a `key` can be sorted by clicking its header */
+const sortableAttributes = computed(() => getTableSortableAttributes(visibleColumns.value));
+
+/* Start from page 1 when the user changes the sort order (not on the first sort when mounting) */
+let sortedOnce = false;
+function onSorted(): void {
+    if (sortedOnce) {
+        currentPage.value = 1;
+    }
+    sortedOnce = true;
+}
+
 /* ---------- Row click ---------- */
 
 /**
@@ -175,48 +191,63 @@ function onTableClick(event: MouseEvent): void {
             </div>
         </div>
 
-        <f-paginate-dataset
-            v-model="currentPage"
-            :items="filteredData"
-            :items-per-page="itemsPerPage"
+        <!--
+            FSortFilterDataset makes the column headers sortable (FTable talks to it
+            via provide/inject). Its own search and sort dropdown are turned off since
+            the toolbar above already has a search field.
+        -->
+        <f-sort-filter-dataset
+            :data="filteredData"
+            :sortable-attributes="sortableAttributes"
+            :show-filter="false"
+            :show-sort="false"
+            @dataset-sorted="onSorted"
         >
-            <template #default="{ items, firstItemIndex, lastItemIndex }">
-                <div @click="onTableClick">
-                    <f-table
-                        :key="visibleIds.join('|')"
-                        :rows="items"
-                        :columns="visibleColumns"
-                        key-attribute="id"
-                        striped
-                        :row-class="() => 'clickable-row'"
-                    >
-                        <template #caption>
-                            <span aria-live="polite">
-                                <template v-if="filteredData.length === 0">
-                                    Inga träffar bland {{ data.length }} {{ noun }}
+            <template #default="{ sortFilterResult }">
+                <f-paginate-dataset
+                    v-model="currentPage"
+                    :items="sortFilterResult"
+                    :items-per-page="itemsPerPage"
+                >
+                    <template #default="{ items, firstItemIndex, lastItemIndex }">
+                        <div @click="onTableClick">
+                            <f-table
+                                :key="visibleIds.join('|')"
+                                :rows="items"
+                                :columns="visibleColumns"
+                                key-attribute="id"
+                                striped
+                                :row-class="() => 'clickable-row'"
+                            >
+                                <template #caption>
+                                    <span aria-live="polite">
+                                        <template v-if="filteredData.length === 0">
+                                            Inga träffar bland {{ data.length }} {{ noun }}
+                                        </template>
+                                        <template v-else>
+                                            <!-- lastItemIndex is exclusive -->
+                                            Visar {{ firstItemIndex + 1 }}–{{ lastItemIndex }} av
+                                            {{ filteredData.length }} {{ noun }}
+                                            <template v-if="isFiltered">
+                                                (filtrerat från {{ data.length }})
+                                            </template>
+                                        </template>
+                                    </span>
                                 </template>
-                                <template v-else>
-                                    <!-- lastItemIndex is exclusive -->
-                                    Visar {{ firstItemIndex + 1 }}–{{ lastItemIndex }} av
-                                    {{ filteredData.length }} {{ noun }}
-                                    <template v-if="isFiltered">
-                                        (filtrerat från {{ data.length }})
-                                    </template>
+                                <template #empty>
+                                    {{
+                                        isFiltered
+                                            ? `Inga ${noun} matchar ”${searchText.trim()}”.`
+                                            : `Inga ${noun} hittades.`
+                                    }}
                                 </template>
-                            </span>
-                        </template>
-                        <template #empty>
-                            {{
-                                isFiltered
-                                    ? `Inga ${noun} matchar ”${searchText.trim()}”.`
-                                    : `Inga ${noun} hittades.`
-                            }}
-                        </template>
-                    </f-table>
-                </div>
-                <f-paginator v-if="filteredData.length > itemsPerPage" />
+                            </f-table>
+                        </div>
+                        <f-paginator v-if="filteredData.length > itemsPerPage" />
+                    </template>
+                </f-paginate-dataset>
             </template>
-        </f-paginate-dataset>
+        </f-sort-filter-dataset>
     </template>
 </template>
 

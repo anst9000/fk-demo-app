@@ -11,6 +11,7 @@ const columns = defineTableColumns<Subsystem>([
     {
         header: "Kod",
         type: "anchor",
+        key: "code",
         text: (row) => row.code,
         href: (row) => router.resolve({ name: "delsystem-detalj", params: { id: row.id } }).href,
         size: "shrink",

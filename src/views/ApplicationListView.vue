@@ -11,6 +11,7 @@ const columns = defineTableColumns<Application>([
     {
         header: "Namn",
         type: "anchor",
+        key: "name",
         text: (row) => row.name,
         href: (row) => router.resolve({ name: "applikation", params: { id: row.id } }).href,
     },

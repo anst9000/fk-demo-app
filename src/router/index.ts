@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { componentPages } from "../views/components/pages";
 
 declare module "vue-router" {
     interface RouteMeta {
@@ -62,6 +63,20 @@ export const router = createRouter({
             name: "formular",
             component: () => import("../views/FormView.vue"),
             meta: { title: "Formulär", section: "formular" },
+        },
+        {
+            path: "/komponenter",
+            component: () => import("../views/components/ComponentsLayout.vue"),
+            meta: { section: "komponenter" },
+            children: [
+                { path: "", redirect: { name: "komp-aterkoppling" } },
+                ...componentPages.map((page) => ({
+                    path: page.path,
+                    name: page.name,
+                    component: page.component,
+                    meta: { title: page.label, section: "komponenter" },
+                })),
+            ],
         },
         {
             path: "/:pathMatch(.*)*",

@@ -12,14 +12,19 @@ const menuItems: NavigationMenuItem[] = [
     { label: "Applikationer", route: "applikationer" },
     { label: "Delsystem", route: "delsystem" },
     { label: "Formulär", route: "formular" },
+    { label: "Komponenter", route: "komponenter" },
 ];
+
+/* Menu items whose section has no route of its own, mapped to a path */
+const sectionPaths: Record<string, string> = { komponenter: "/komponenter" };
 
 const selectedSection = computed(() => route.meta.section ?? "");
 
 function onSelectedRoute(name: string): void {
-    if (name !== route.name) {
-        void router.push({ name });
+    if (name === route.name) {
+        return;
     }
+    void router.push(sectionPaths[name] ?? { name });
 }
 </script>
 

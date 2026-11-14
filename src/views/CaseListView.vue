@@ -11,6 +11,7 @@ const columns = defineTableColumns<Case>([
     {
         header: "Ärendenummer",
         type: "anchor",
+        key: "caseNumber",
         text: (row) => row.caseNumber,
         href: (row) => router.resolve({ name: "arende", params: { id: row.id } }).href,
         size: "shrink",
