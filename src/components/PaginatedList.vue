@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends { id: number }">
-import { computed, ref, watch } from "vue";
+import { computed, markRaw, ref, watch } from "vue";
 import { type LocationQuery, useRoute, useRouter } from "vue-router";
 import {
     FMessageBox,
@@ -101,7 +101,23 @@ const itemsPerPage = computed({
 const searchText = ref(String(route.query[searchKey.value] ?? ""));
 let searchTimer: ReturnType<typeof setTimeout> | undefined;
 
+/*
+ * The text the rows are filtered on. Small lists filter on every keystroke;
+ * large ones wait for a short pause, so fast typing does not filter and
+ * re-sort 100 000 rows for each letter.
+ */
+const LARGE_LIST = 10_000;
+const filterText = ref(searchText.value);
+let filterTimer: ReturnType<typeof setTimeout> | undefined;
+
 watch(searchText, (text) => {
+    clearTimeout(filterTimer);
+    if ((data.value?.length ?? 0) <= LARGE_LIST) {
+        filterText.value = text;
+    } else {
+        filterTimer = setTimeout(() => (filterText.value = text), 150);
+    }
+
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
         updateQuery({
@@ -135,15 +151,35 @@ const searchIndex = computed<string[]>(() =>
     ),
 );
 
-/** Every word must appear in at least one of the row's text or number fields */
+/*
+ * Build the index when the browser is idle right after loading, instead of
+ * on the first keystroke (~50 ms with 100 000 rows).
+ */
+const whenIdle: (callback: () => void) => void =
+    typeof requestIdleCallback === "function"
+        ? (callback) => requestIdleCallback(callback, { timeout: 1000 })
+        : (callback) => setTimeout(callback, 0);
+
+watch(data, (rows) => {
+    if (rows && rows.length > 0) {
+        whenIdle(() => void searchIndex.value);
+    }
+});
+
+/**
+ * Every word must appear in at least one of the row's text or number fields.
+ *
+ * The result is marked raw: FSortFilterDataset deep-watches its data, which
+ * otherwise means walking every field of every row on each change.
+ */
 const filteredData = computed<T[]>(() => {
     const rows = data.value ?? [];
-    const words = searchText.value.toLowerCase().split(/\s+/).filter(Boolean);
+    const words = filterText.value.toLowerCase().split(/\s+/).filter(Boolean);
     if (words.length === 0) {
-        return rows;
+        return markRaw(rows);
     }
     const index = searchIndex.value;
-    return rows.filter((_row, i) => words.every((word) => index[i].includes(word)));
+    return markRaw(rows.filter((_row, i) => words.every((word) => index[i].includes(word))));
 });
 
 const isFiltered = computed(() => filteredData.value.length !== (data.value?.length ?? 0));
@@ -287,7 +323,7 @@ function onTableClick(event: MouseEvent): void {
                                 <template #empty>
                                     {{
                                         isFiltered
-                                            ? `Inga ${noun} matchar ”${searchText.trim()}”.`
+                                            ? `Inga ${noun} matchar ”${filterText.trim()}”.`
                                             : `Inga ${noun} hittades.`
                                     }}
                                 </template>
