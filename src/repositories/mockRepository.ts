@@ -60,11 +60,20 @@ export function createMockRepository<T extends { id: number }>(
 
     /*
      * "Server side" state for query(). A real backend would use database
-     * indexes; here the search text of each row is computed once, and the
-     * last searched and sorted result is kept, so paging through it is cheap.
+     * indexes; here the search text of each row is computed on the first
+     * search (not before, since listing without a search does not need it),
+     * and the last searched and sorted result is kept, so paging through it
+     * is cheap.
      */
     let searchIndex: { rows: T[]; texts: string[] } | undefined;
     let lastResult: { key: string; rows: T[] } | undefined;
+
+    function searchTexts(all: T[]): string[] {
+        if (searchIndex?.rows !== all) {
+            searchIndex = { rows: all, texts: all.map(rowSearchText) };
+        }
+        return searchIndex.texts;
+    }
 
     function searchAndSort(all: T[], request: PageQuery<T>): T[] {
         const { search = "", sortAttribute = "", ascending = true } = request;
@@ -72,12 +81,12 @@ export function createMockRepository<T extends { id: number }>(
         if (lastResult?.key === key) {
             return lastResult.rows;
         }
-        if (searchIndex?.rows !== all) {
-            searchIndex = { rows: all, texts: all.map(rowSearchText) };
-        }
         const words = searchWords(search);
-        const texts = searchIndex.texts;
-        let rows = words.length > 0 ? all.filter((_row, i) => matchesAllWords(texts[i], words)) : all;
+        let rows = all;
+        if (words.length > 0) {
+            const texts = searchTexts(all);
+            rows = all.filter((_row, i) => matchesAllWords(texts[i], words));
+        }
         if (sortAttribute !== "") {
             rows = [...rows].sort((a, b) => compareRows(a, b, sortAttribute, ascending));
         }
