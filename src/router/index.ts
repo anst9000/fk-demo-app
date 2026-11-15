@@ -26,6 +26,12 @@ export const router = createRouter({
             meta: { title: "Ärenden", section: "arenden" },
         },
         {
+            path: "/arenden/server",
+            name: "arenden-server",
+            component: () => import("../views/CaseServerListView.vue"),
+            meta: { title: "Ärenden (server)", section: "arenden" },
+        },
+        {
             path: "/arenden/:id(\\d+)",
             name: "arende",
             component: () => import("../views/CaseDetailView.vue"),

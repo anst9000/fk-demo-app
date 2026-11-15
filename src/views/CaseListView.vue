@@ -1,31 +1,18 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-import { defineTableColumns } from "@fkui/vue";
+import { RouterLink } from "vue-router";
 import PaginatedList from "../components/PaginatedList.vue";
 import { caseRepository } from "../repositories/caseRepository";
-import type { Case } from "../types/case";
+import { useCaseColumns } from "./caseColumns";
 
-const router = useRouter();
-
-const columns = defineTableColumns<Case>([
-    {
-        header: "Ärendenummer",
-        type: "anchor",
-        key: "caseNumber",
-        text: (row) => row.caseNumber,
-        href: (row) => router.resolve({ name: "arende", params: { id: row.id } }).href,
-        size: "shrink",
-    },
-    { header: "Namn", key: "name", type: "text" },
-    { header: "Förmån", key: "benefit", type: "text" },
-    { header: "Status", key: "status", type: "text" },
-    { header: "Belopp (kr)", key: "amount", type: "text:currency", size: "shrink" },
-    { header: "Inkom", key: "receivedDate", type: "text:date", size: "shrink" },
-]);
+const columns = useCaseColumns();
 </script>
 
 <template>
     <h1>Ärenden</h1>
-    <p>Klicka på en rad för att öppna ärendet.</p>
+    <p>
+        Klicka på en rad för att öppna ärendet. Alla ärenden hämtas på en gång och söks,
+        sorteras och delas upp i sidor i webbläsaren.
+        <router-link :to="{ name: 'arenden-server' }">Jämför med paginering på servern</router-link>.
+    </p>
     <paginated-list list-id="arenden" :load="caseRepository.getAll" :columns noun="ärenden" />
 </template>

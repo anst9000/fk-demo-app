@@ -1,20 +1,25 @@
 <script setup lang="ts" generic="T extends { id: number }">
-import { computed, markRaw, ref, watch } from "vue";
-import { type LocationQuery, useRoute, useRouter } from "vue-router";
+/**
+ * A list where all rows are loaded at once and searched, sorted and paged in
+ * the browser. See ServerPaginatedList for the version that lets the server
+ * do it and only fetches one page at a time.
+ */
+import { computed, markRaw, watch } from "vue";
 import {
     FMessageBox,
     FPaginateDataset,
     FPaginator,
-    FSearchTextField,
-    FSelectField,
     FSortFilterDataset,
     FTable,
     getTableSortableAttributes,
     type TableColumn,
 } from "@fkui/vue";
-import ColumnSettings from "./ColumnSettings.vue";
+import ListToolbar from "./ListToolbar.vue";
 import { useColumnVisibility } from "../composables/useColumnVisibility";
+import { PAGE_SIZES, useListQuery } from "../composables/useListQuery";
 import { useResource } from "../composables/useResource";
+import { useRowLink } from "../composables/useRowLink";
+import { matchesAllWords, rowSearchText, searchWords } from "../utils/rowSearch";
 
 const props = withDefaults(
     defineProps<{
@@ -32,128 +37,33 @@ const props = withDefaults(
     { queryPrefix: "" },
 );
 
-const route = useRoute();
-const router = useRouter();
 const { data, loading, error } = useResource(props.load);
-
-/* ---------- Column visibility ---------- */
 
 const { options, visibleIds, visibleColumns, showAll } = useColumnVisibility(
     () => props.columns,
     `fk-demo:columns:${props.listId}`,
 );
 
-/* ---------- URL state: page, page size and search ---------- */
+/** Every column with a `key` can be sorted by clicking its header */
+const sortableAttributes = computed(() => getTableSortableAttributes(props.columns));
 
-const pageSizes = [10, 25, 50];
-const pageKey = computed(() => `${props.queryPrefix}sida`);
-const sizeKey = computed(() => `${props.queryPrefix}rader`);
-const searchKey = computed(() => `${props.queryPrefix}sok`);
+const { currentPage, itemsPerPage, search, searchText, sortAttribute, sortAscending, onSortChanged } =
+    useListQuery(props.queryPrefix, sortableAttributes);
 
-function readNumber(key: string, fallback: number): number {
-    const value = Number(route.query[key]);
-    return Number.isInteger(value) && value > 0 ? value : fallback;
-}
-
-/*
- * router.replace() is async, so route.query is stale until it finishes. Quick
- * successive changes (sort, then page) build on the pending query instead, so
- * no change is lost.
- */
-let pendingQuery: LocationQuery | null = null;
-
-function updateQuery(changes: Record<string, string | undefined>): void {
-    const query: LocationQuery = { ...(pendingQuery ?? route.query) };
-    for (const [key, value] of Object.entries(changes)) {
-        if (value === undefined) {
-            delete query[key];
-        } else {
-            query[key] = value;
-        }
-    }
-    pendingQuery = query;
-    void router.replace({ query }).finally(() => {
-        if (pendingQuery === query) {
-            pendingQuery = null;
-        }
-    });
-}
-
-/* Page, page size and search live in the URL, so "back" from a detail page returns to the same view */
-const currentPage = computed({
-    get: () => readNumber(pageKey.value, 1),
-    set: (page: number) => updateQuery({ [pageKey.value]: page === 1 ? undefined : String(page) }),
-});
-
-const itemsPerPage = computed({
-    get: () => {
-        const size = readNumber(sizeKey.value, pageSizes[0]);
-        return pageSizes.includes(size) ? size : pageSizes[0];
-    },
-    set: (size: number) =>
-        updateQuery({
-            [pageKey.value]: undefined,
-            [sizeKey.value]: size === pageSizes[0] ? undefined : String(size),
-        }),
-});
-
-/* The search text is kept locally while typing and written to the URL shortly after */
-const searchText = ref(String(route.query[searchKey.value] ?? ""));
-let searchTimer: ReturnType<typeof setTimeout> | undefined;
-
-/*
- * The text the rows are filtered on. Small lists filter on every keystroke;
- * large ones wait for a short pause, so fast typing does not filter and
- * re-sort 100 000 rows for each letter.
- */
-const LARGE_LIST = 10_000;
-const filterText = ref(searchText.value);
-let filterTimer: ReturnType<typeof setTimeout> | undefined;
-
-watch(searchText, (text) => {
-    clearTimeout(filterTimer);
-    if ((data.value?.length ?? 0) <= LARGE_LIST) {
-        filterText.value = text;
-    } else {
-        filterTimer = setTimeout(() => (filterText.value = text), 150);
-    }
-
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => {
-        updateQuery({
-            [searchKey.value]: text.trim() || undefined,
-            [pageKey.value]: undefined, // a new search starts on page 1
-        });
-    }, 250);
-});
+const onTableClick = useRowLink();
 
 /* ---------- Filtering ---------- */
 
-function isSearchable(key: string, value: unknown): value is string | number {
-    // ids are internal and would give confusing matches
-    if (key === "id" || key.endsWith("Id")) {
-        return false;
-    }
-    return typeof value === "string" || typeof value === "number";
-}
-
 /**
  * Lower-cased search text for each row, built once when the data is loaded.
- * Building it on every keystroke took ~50 ms with 10 000 rows; with the index
- * a keystroke takes ~1-2 ms.
+ * Building it on every search took ~50 ms with 10 000 rows; with the index
+ * a search takes ~1-2 ms.
  */
-const searchIndex = computed<string[]>(() =>
-    (data.value ?? []).map((row) =>
-        Object.entries(row)
-            .filter(([key, value]) => isSearchable(key, value))
-            .map(([, value]) => String(value).toLowerCase())
-            .join(" "),
-    ),
-);
+const searchIndex = computed<string[]>(() => (data.value ?? []).map(rowSearchText));
 
 /*
  * Build the index when the browser is idle right after loading, instead of
- * on the first keystroke (~50 ms with 100 000 rows).
+ * on the first search (~50 ms with 100 000 rows).
  */
 const whenIdle: (callback: () => void) => void =
     typeof requestIdleCallback === "function"
@@ -167,86 +77,21 @@ watch(data, (rows) => {
 });
 
 /**
- * Every word must appear in at least one of the row's text or number fields.
- *
- * The result is marked raw: FSortFilterDataset deep-watches its data, which
- * otherwise means walking every field of every row on each change.
+ * Filtered on the search in the URL, which is updated 250 ms after the last
+ * keystroke. The result is marked raw: FSortFilterDataset deep-watches its
+ * data, which otherwise means walking every field of every row on each change.
  */
 const filteredData = computed<T[]>(() => {
     const rows = data.value ?? [];
-    const words = filterText.value.toLowerCase().split(/\s+/).filter(Boolean);
+    const words = searchWords(search.value);
     if (words.length === 0) {
         return markRaw(rows);
     }
     const index = searchIndex.value;
-    return markRaw(rows.filter((_row, i) => words.every((word) => index[i].includes(word))));
+    return markRaw(rows.filter((_row, i) => matchesAllWords(index[i], words)));
 });
 
 const isFiltered = computed(() => filteredData.value.length !== (data.value?.length ?? 0));
-
-/* ---------- Sorting ---------- */
-
-/** Every column with a `key` can be sorted by clicking its header */
-const sortableAttributes = computed(() => getTableSortableAttributes(props.columns));
-
-/*
- * The sort order is kept in the URL as ?sortera=<key>&ordning=fallande
- * (ascending is the default and is left out). FSortFilterDataset reads the
- * starting order from the URL once, when it is created.
- */
-const sortKey = computed(() => `${props.queryPrefix}sortera`);
-const orderKey = computed(() => `${props.queryPrefix}ordning`);
-
-const urlSortAttribute = computed(() => {
-    const value = route.query[sortKey.value];
-    return typeof value === "string" && value in sortableAttributes.value ? value : "";
-});
-const urlSortAscending = computed(() => route.query[orderKey.value] !== "fallande");
-
-function onSortChanged(sort: { attribute: string | number | symbol; ascending: boolean }): void {
-    const attribute = String(sort.attribute ?? "");
-    const unchanged =
-        attribute === urlSortAttribute.value &&
-        (attribute === "" || sort.ascending === urlSortAscending.value);
-    if (unchanged) {
-        return; // e.g. the order from the URL being applied: keep the current page
-    }
-    updateQuery({
-        [sortKey.value]: attribute || undefined,
-        [orderKey.value]: attribute && !sort.ascending ? "fallande" : undefined,
-        [pageKey.value]: undefined, // a new sort order starts on page 1
-    });
-}
-
-/* ---------- Row click ---------- */
-
-/**
- * Each row has a link (anchor column) to its detail page. Clicking anywhere on
- * the row follows that link, and the link itself is handled by the router
- * instead of reloading the whole page.
- */
-function onTableClick(event: MouseEvent): void {
-    if (event.defaultPrevented || event.button !== 0) {
-        return;
-    }
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
-        return; // let the browser open the link in a new tab/window
-    }
-    const target = event.target as HTMLElement;
-    if (target.closest("button, input, select, textarea")) {
-        return;
-    }
-    const row = target.closest("tbody tr");
-    const link =
-        target.closest<HTMLAnchorElement>("a[href]") ??
-        row?.querySelector<HTMLAnchorElement>("a[href]");
-    const href = link?.getAttribute("href");
-    if (!href || !href.startsWith("/")) {
-        return;
-    }
-    event.preventDefault();
-    void router.push(href);
-}
 </script>
 
 <template>
@@ -259,22 +104,15 @@ function onTableClick(event: MouseEvent): void {
     </f-message-box>
 
     <template v-else-if="data">
-        <div class="toolbar">
-            <div class="toolbar__search">
-                <f-search-text-field v-model="searchText">
-                    <template #default>Sök bland {{ noun }}</template>
-                </f-search-text-field>
-            </div>
-            <div v-if="data.length > pageSizes[0]" class="toolbar__page-size">
-                <f-select-field v-model.number="itemsPerPage">
-                    <template #label>Rader per sida</template>
-                    <option v-for="size in pageSizes" :key="size" :value="size">{{ size }}</option>
-                </f-select-field>
-            </div>
-            <div class="toolbar__settings">
-                <column-settings v-model="visibleIds" :options @show-all="showAll" />
-            </div>
-        </div>
+        <list-toolbar
+            v-model:search="searchText"
+            v-model:page-size="itemsPerPage"
+            v-model:visible-ids="visibleIds"
+            :noun
+            :show-page-size="data.length > PAGE_SIZES[0]"
+            :options
+            @show-all="showAll"
+        />
 
         <!--
             FSortFilterDataset makes the column headers sortable (FTable talks to it
@@ -286,8 +124,8 @@ function onTableClick(event: MouseEvent): void {
             :sortable-attributes="sortableAttributes"
             :show-filter="false"
             :show-sort="false"
-            :default-sort-attribute="urlSortAttribute"
-            :default-sort-ascending="urlSortAscending"
+            :default-sort-attribute="sortAttribute"
+            :default-sort-ascending="sortAscending"
             @used-sort-attributes="onSortChanged"
         >
             <template #default="{ sortFilterResult }">
@@ -323,7 +161,7 @@ function onTableClick(event: MouseEvent): void {
                                 <template #empty>
                                     {{
                                         isFiltered
-                                            ? `Inga ${noun} matchar ”${filterText.trim()}”.`
+                                            ? `Inga ${noun} matchar ”${search}”.`
                                             : `Inga ${noun} hittades.`
                                     }}
                                 </template>
@@ -336,26 +174,3 @@ function onTableClick(event: MouseEvent): void {
         </f-sort-filter-dataset>
     </template>
 </template>
-
-<style scoped>
-.toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 0 1.5rem;
-}
-
-.toolbar__search {
-    flex: 1 1 18rem;
-    max-width: 28rem;
-}
-
-.toolbar__page-size {
-    flex: 0 0 10rem;
-}
-
-.toolbar__settings {
-    margin-left: auto;
-    margin-bottom: 1.5rem;
-}
-</style>
