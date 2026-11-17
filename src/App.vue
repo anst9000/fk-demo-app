@@ -20,6 +20,7 @@ const menuItems: NavigationMenuItem[] = [
     { label: "Delsystem", route: "delsystem" },
     { label: "Formulär", route: "formular" },
     { label: "Komponenter", route: "komponenter" },
+    { label: "Begrepp", route: "begrepp" },
 ];
 
 /* Menu items whose section has no route of its own, mapped to a path */

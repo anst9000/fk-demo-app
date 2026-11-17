@@ -73,6 +73,12 @@ export const router = createRouter({
             meta: { title: "Formulär", section: "formular" },
         },
         {
+            path: "/begrepp",
+            name: "begrepp",
+            component: () => import("../views/TermsView.vue"),
+            meta: { title: "Begrepp", section: "begrepp" },
+        },
+        {
             path: "/komponenter",
             component: () => import("../views/components/ComponentsLayout.vue"),
             meta: { section: "komponenter" },
