@@ -7,7 +7,9 @@ import {
     setRunningContext,
 } from "@fkui/vue";
 import icons from "@fkui/icon-lib-default";
-import "@fkui/theme-default";
+/* Light, dark and auto theme; see theme.scss and FKUI-THEME.md */
+import "./theme.scss";
+import "./theme";
 import "@fkui/design/lib/fonts.css";
 import "@fkui/design";
 import "./style.css";

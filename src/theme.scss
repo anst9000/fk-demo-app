@@ -1,0 +1,21 @@
+/*
+ * FKUI's default theme in three variants, chosen by the data-theme attribute on <html>:
+ *   no attribute or "auto": follows the computer's light/dark setting
+ *   "light" / "dark":       always that theme
+ * $global: false stops the package from writing its own light :root block.
+ */
+@use "@fkui/theme-default/src/default" as fkui with ($global: false);
+
+:root {
+    @include fkui.auto;
+}
+
+:root[data-theme="light"] {
+    @include fkui.light;
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    @include fkui.dark;
+    color-scheme: dark;
+}
