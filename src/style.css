@@ -1,3 +1,9 @@
+/* FLogo shows these images (a made-up demo logo, not Försäkringskassan's) */
+:root {
+    --f-logo-image-small: url("/logo-small.svg");
+    --f-logo-image-large: url("/logo-large.svg");
+}
+
 body {
     margin: 0;
 }

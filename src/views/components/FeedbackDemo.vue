@@ -17,6 +17,19 @@ function changeProgress(step: number): void {
     progress.value = Math.min(100, Math.max(0, progress.value + step));
 }
 
+/* FOffline (in App.vue) reacts to the browser's offline and online events; these only pretend */
+function pretendOffline(): void {
+    window.dispatchEvent(new Event("offline"));
+}
+function pretendOnline(): void {
+    window.dispatchEvent(new Event("online"));
+}
+
+/* FErrorHandlingApp (in main.ts) replaces the app with an error page when an error is not handled */
+function throwError(): void {
+    throw new Error("Ett påhittat fel från komponentdemon");
+}
+
 /* Loader: shown as an overlay while a (pretend) request is running */
 const loading = ref(false);
 function simulateRequest(): void {
@@ -98,6 +111,26 @@ const tooltipAnchor = useTemplateRef<HTMLElement>("tooltipAnchor");
         </template>
     </f-tooltip>
     <p>Klicka på i-knappen bredvid rubriken ovan.</p>
+
+    <h2>Ingen anslutning</h2>
+    <p>
+        <code>FOffline</code> ligger i appens ram och visar ett meddelande högst upp när
+        webbläsaren tappar nätverket. Knapparna låtsas bara: de skickar webbläsarens
+        <code>offline</code>- och <code>online</code>-händelser. Du kan också slå av nätverket i
+        webbläsarens utvecklarverktyg.
+    </p>
+    <p class="button-row">
+        <f-button variant="secondary" size="medium" @click="pretendOffline">Låtsas tappa nätverket</f-button>
+        <f-button variant="secondary" size="medium" @click="pretendOnline">Låtsas få tillbaka det</f-button>
+    </p>
+
+    <h2>Felsida</h2>
+    <p>
+        <code>FErrorHandlingApp</code> och <code>ErrorPlugin</code> ligger runt hela appen (se
+        <code>main.ts</code>). När ett fel inte fångas visas FKUI:s felsida i stället för appen.
+        Ladda om sidan för att komma tillbaka.
+    </p>
+    <f-button variant="secondary" size="medium" @click="throwError">Orsaka ett fel</f-button>
 </template>
 
 <style scoped>

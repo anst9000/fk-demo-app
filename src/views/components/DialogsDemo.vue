@@ -2,7 +2,9 @@
 import { ref, useTemplateRef } from "vue";
 import {
     type ContextMenuItem,
+    type FModalButtonDescriptor,
     FButton,
+    FConfirmModal,
     FContextMenu,
     FDefinitionList,
     FModal,
@@ -11,7 +13,7 @@ import {
 } from "@fkui/vue";
 import ContactFormModal, { type ContactDetails } from "./ContactFormModal.vue";
 
-const { confirmModal, formModal } = useModal();
+const { confirmModal, formModal, openModal } = useModal();
 
 /* ---------- FModal ---------- */
 const infoOpen = ref(false);
@@ -33,6 +35,28 @@ async function removeDocument(name: string): Promise<void> {
     } else {
         lastAction.value = `${name} behölls.`;
     }
+}
+
+/* ---------- FConfirmModal with three buttons ---------- */
+const draftButtons: FModalButtonDescriptor[] = [
+    { label: "Spara utkast", event: "save", reason: "save", type: "primary" },
+    { label: "Släng ändringarna", event: "discard", reason: "discard", type: "secondary" },
+    { label: "Fortsätt redigera", event: "dismiss", reason: "dismiss", type: "secondary" },
+];
+
+async function leaveDraft(): Promise<void> {
+    const result = await openModal(FConfirmModal, {
+        props: {
+            heading: "Du har osparade ändringar",
+            content: "Vill du spara ansökan som utkast innan du lämnar sidan?",
+            buttons: draftButtons,
+        },
+    });
+    const texts: Record<string, string> = {
+        save: "Utkastet sparades (på låtsas).",
+        discard: "Ändringarna slängdes.",
+    };
+    lastAction.value = texts[String(result.reason)] ?? "Du fortsatte redigera.";
 }
 
 /* ---------- Form modal ---------- */
@@ -116,6 +140,14 @@ function onMenuSelect(key: string): void {
         </li>
     </ul>
     <p v-if="documents.length === 0">Inga dokument kvar.</p>
+
+    <h3>Fler än två val</h3>
+    <p>
+        Bakom <code>confirmModal()</code> ligger komponenten <code>FConfirmModal</code>. Med
+        <code>openModal(FConfirmModal, …)</code> kan den få egna knappar, och svaret är händelsen
+        för knappen man valde. Att lägga den direkt i mallen är utfasat.
+    </p>
+    <f-button variant="secondary" size="medium" @click="leaveDraft">Lämna ansökan</f-button>
 
     <h2>Formulärsmodal</h2>
     <p><code>formModal()</code> öppnar ett formulär i en modal och returnerar det som sparades.</p>

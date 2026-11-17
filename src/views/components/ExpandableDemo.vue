@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { FExpandablePanel, FExpandableParagraph } from "@fkui/vue";
+import { FExpand, FExpandablePanel, FExpandableParagraph } from "@fkui/vue";
 
 interface Question {
     title: string;
@@ -35,6 +35,9 @@ function togglePanel(index: number): void {
 }
 
 const paragraphOpen = ref(false);
+
+/* FExpand animates content that appears or disappears */
+const detailsOpen = ref(false);
 </script>
 
 <template>
@@ -72,4 +75,34 @@ const paragraphOpen = ref(false);
             </p>
         </template>
     </f-expandable-paragraph>
+
+    <h2>Animerad expandering</h2>
+    <p>
+        <code>FExpand</code> har ingen rubrik eller knapp själv. Den animerar bara innehåll som
+        visas eller döljs, så den passar när knappen ska se ut på ett eget sätt.
+    </p>
+    <!-- A plain button with FKUI's classes: FButton does not update aria-expanded after the first render -->
+    <button
+        type="button"
+        class="button button--secondary button--medium"
+        :aria-expanded="detailsOpen"
+        aria-controls="expand-details"
+        @click="detailsOpen = !detailsOpen"
+    >
+        {{ detailsOpen ? "Dölj beräkningen" : "Visa beräkningen" }}
+    </button>
+    <f-expand>
+        <div v-if="detailsOpen" id="expand-details" class="expand-details">
+            <p>
+                Ersättningen är knappt 80 procent av inkomsten upp till ett tak. Siffrorna i
+                exemplet är påhittade.
+            </p>
+        </div>
+    </f-expand>
 </template>
+
+<style scoped>
+.expand-details {
+    padding: 1rem 0 0;
+}
+</style>

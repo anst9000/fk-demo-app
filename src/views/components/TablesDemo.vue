@@ -2,11 +2,16 @@
 import { computed, ref } from "vue";
 import {
     FButton,
+    FCrudButton,
     FCrudDataset,
+    FDataTable,
+    FInteractiveTable,
     FList,
     FPersonnummerTextField,
     FStaticField,
     FTable,
+    FTableButton,
+    FTableColumn,
     FTextField,
     defineTableColumns,
 } from "@fkui/vue";
@@ -92,6 +97,25 @@ function beforeCreate(): Child {
 
 function log(text: string): void {
     changeLog.value = [text, ...changeLog.value].slice(0, 5);
+}
+
+/* ---------- Deprecated table components (replaced by FTable) ---------- */
+
+interface Contact {
+    id: string;
+    name: string;
+    phone: string;
+}
+
+const contacts = ref<Contact[]>([
+    { id: "1", name: "Anna Andersson", phone: "070-111 11 11" },
+    { id: "2", name: "Björn Berg", phone: "070-222 22 22" },
+]);
+const oldTableNote = ref("");
+
+function contactBeforeCreate(): Contact {
+    const maxId = contacts.value.reduce((max, c) => Math.max(max, Number(c.id)), 0);
+    return { id: String(maxId + 1), name: "", phone: "" };
 }
 </script>
 
@@ -197,6 +221,72 @@ function log(text: string): void {
     <ul v-if="changeLog.length > 0" class="change-log" aria-live="polite">
         <li v-for="(entry, index) in changeLog" :key="index">{{ entry }}</li>
     </ul>
+
+    <h2>Äldre tabellkomponenter (utfasade)</h2>
+    <p>
+        De här komponenterna finns kvar i FKUI men är utfasade. Använd <code>FTable</code> med
+        kolumner från <code>defineTableColumns()</code> i ny kod. De visas här för att alla
+        komponenter ska finnas med, och för den som underhåller äldre kod.
+    </p>
+
+    <h3>FDataTable och FTableColumn</h3>
+    <f-data-table :rows="payments" key-attribute="id">
+        <template #caption>Utbetalningar</template>
+        <template #default="{ row }">
+            <f-table-column name="period" title="Period" type="text">{{ row.period }}</f-table-column>
+            <f-table-column name="benefit" title="Förmån" type="text">{{ row.benefit }}</f-table-column>
+            <f-table-column name="amount" title="Belopp" type="numeric">
+                {{ formatCurrency(row.amount) }}
+            </f-table-column>
+        </template>
+    </f-data-table>
+
+    <h3>FInteractiveTable, FTableButton och FCrudButton</h3>
+    <p>
+        En interaktiv tabell i ett <code>FCrudDataset</code>. Knapparna i tabellen är
+        <code>FTableButton</code> och <code>FCrudButton</code>.
+    </p>
+    <f-crud-dataset
+        v-model="contacts"
+        :before-create="contactBeforeCreate"
+        add-new-modal-header="Lägg till kontaktperson"
+        modify-modal-header="Ändra kontaktperson"
+        delete-modal-header="Vill du ta bort kontaktpersonen?"
+    >
+        <template #default>
+            <f-interactive-table :rows="contacts" key-attribute="id">
+                <template #caption>Kontaktpersoner</template>
+                <template #default="{ row }">
+                    <f-table-column name="name" title="Namn" type="text">{{ row.name }}</f-table-column>
+                    <f-table-column name="phone" title="Telefon" type="text">{{ row.phone }}</f-table-column>
+                    <f-table-column name="call" title="Ring" type="action">
+                        <f-table-button icon="bell" @click="oldTableNote = `Du ringde ${row.name} (på låtsas).`">
+                            Ring <span class="sr-only">{{ row.name }}</span>
+                        </f-table-button>
+                    </f-table-column>
+                    <f-table-column name="actions" title="Åtgärder" type="action">
+                        <f-crud-button action="modify" :item="row" />
+                        <f-crud-button action="delete" :item="row" />
+                    </f-table-column>
+                </template>
+            </f-interactive-table>
+        </template>
+
+        <template #add-button>Lägg till kontaktperson</template>
+
+        <template #add="{ item }">
+            <f-text-field v-model="item.name" v-validation.required>Namn</f-text-field>
+            <f-text-field v-model="item.phone" v-validation.required>Telefon</f-text-field>
+        </template>
+
+        <template #modify="{ item }">
+            <f-text-field v-model="item.name" v-validation.required>Namn</f-text-field>
+            <f-text-field v-model="item.phone" v-validation.required>Telefon</f-text-field>
+        </template>
+
+        <template #delete="{ item }">Vill du ta bort {{ item.name }}?</template>
+    </f-crud-dataset>
+    <p v-if="oldTableNote" aria-live="polite">{{ oldTableNote }}</p>
 </template>
 
 <style scoped>

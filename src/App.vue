@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { RouterView, useRoute, useRouter } from "vue-router";
-import { FNavigationMenu, FPageHeader, type NavigationMenuItem } from "@fkui/vue";
+import { FNavigationMenu, FOffline, FPageHeader, type NavigationMenuItem } from "@fkui/vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -20,6 +20,9 @@ const sectionPaths: Record<string, string> = { komponenter: "/komponenter" };
 
 const selectedSection = computed(() => route.meta.section ?? "");
 
+/* Full-screen layout demos bring their own page frame */
+const fullscreen = computed(() => route.meta.fullscreen === true);
+
 function onSelectedRoute(name: string): void {
     if (name === route.name) {
         return;
@@ -29,22 +32,29 @@ function onSelectedRoute(name: string): void {
 </script>
 
 <template>
-    <f-page-header skip-link="main-content">
-        <router-link to="/" class="app-name">FKUI-demo</router-link>
-        <template #skip-link-text>Hoppa till huvudinnehåll</template>
-    </f-page-header>
+    <!-- Shown at the top of the page when the browser loses its connection -->
+    <f-offline />
 
-    <nav class="app-nav" aria-label="Huvudmeny">
-        <f-navigation-menu
-            :routes="menuItems"
-            :route="selectedSection"
-            @selected-route="onSelectedRoute"
-        />
-    </nav>
+    <router-view v-if="fullscreen" />
 
-    <main id="main-content" class="page" tabindex="-1">
-        <router-view />
-    </main>
+    <template v-else>
+        <f-page-header skip-link="main-content">
+            <router-link to="/" class="app-name">FKUI-demo</router-link>
+            <template #skip-link-text>Hoppa till huvudinnehåll</template>
+        </f-page-header>
+
+        <nav class="app-nav" aria-label="Huvudmeny">
+            <f-navigation-menu
+                :routes="menuItems"
+                :route="selectedSection"
+                @selected-route="onSelectedRoute"
+            />
+        </nav>
+
+        <main id="main-content" class="page" tabindex="-1">
+            <router-view />
+        </main>
+    </template>
 </template>
 
 <style scoped>

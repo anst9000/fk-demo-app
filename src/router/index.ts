@@ -7,6 +7,8 @@ declare module "vue-router" {
         title?: string;
         /** Which navigation menu item is selected */
         section?: string;
+        /** The page fills the whole window, without the app's header and menu */
+        fullscreen?: boolean;
     }
 }
 
@@ -83,6 +85,18 @@ export const router = createRouter({
                     meta: { title: page.label, section: "komponenter" },
                 })),
             ],
+        },
+        {
+            path: "/komponenter/sidlayout/fpagelayout",
+            name: "demo-fpagelayout",
+            component: () => import("../views/components/PageLayoutDemo.vue"),
+            meta: { title: "FPageLayout", section: "komponenter", fullscreen: true },
+        },
+        {
+            path: "/komponenter/sidlayout/applikationsmall",
+            name: "demo-applikationsmall",
+            component: () => import("../views/components/ApplicationTemplateDemo.vue"),
+            meta: { title: "FLayoutApplicationTemplate", section: "komponenter", fullscreen: true },
         },
         {
             path: "/:pathMatch(.*)*",

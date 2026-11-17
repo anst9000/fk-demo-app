@@ -40,9 +40,21 @@ export const componentPages: ComponentPage[] = [
         component: () => import("./TablesDemo.vue"),
     },
     {
+        path: "falt",
+        name: "komp-falt",
+        label: "Fler fält och validering",
+        component: () => import("./FieldsDemo.vue"),
+    },
+    {
+        path: "sidlayout",
+        name: "komp-sidlayout",
+        label: "Sidlayout",
+        component: () => import("./LayoutDemo.vue"),
+    },
+    {
         path: "ovrigt",
         name: "komp-ovrigt",
-        label: "Kalender, dialogträd m.m.",
+        label: "Kalender, ikoner, filer m.m.",
         component: () => import("./MiscDemo.vue"),
     },
 ];

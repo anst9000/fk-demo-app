@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { computed, ref, shallowRef } from "vue";
+import { computed, onUnmounted, ref, shallowRef } from "vue";
 import { FDate } from "@fkui/date";
 import {
     type FDialogueTreeQuestion,
     type FDialogueTreeUserProgress,
+    FButton,
     FCalendar,
     FCalendarDay,
     FCurrencyTextField,
     FDialogueTree,
+    FFileItem,
+    FIcon,
+    FLogo,
+    FProgressbar,
     FOutputField,
     FStaticField,
     FTextField,
@@ -119,6 +124,45 @@ const otherIncome = ref("");
 const totalIncome = computed(() => (Number(salary.value) || 0) + (Number(otherIncome.value) || 0));
 
 const decisionDate = "20260315";
+
+/* ---------- Icons: every icon in @fkui/icon-lib-default ---------- */
+const iconNames = [
+    "alert", "arrow-down", "arrow-in-circle", "arrow-right", "bars", "bell", "calendar",
+    "caret-down", "caret-up", "chevrons-left", "circle", "circle-notch-solid", "close", "cross",
+    "dash", "doc", "ellipsis", "error", "file", "i", "new-window", "paper-clip", "pdf", "pen",
+    "pic", "plus", "search", "sort", "success", "trashcan", "triangle",
+];
+
+/* ---------- File items ---------- */
+interface DemoFile {
+    name: string;
+    type: string;
+}
+const files: DemoFile[] = [
+    { name: "Läkarintyg.pdf", type: "application/pdf" },
+    { name: "Foto på kvitto.jpg", type: "image/jpeg" },
+    { name: "Ansökan.docx", type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" },
+    { name: "Kalkyl.csv", type: "text/csv" },
+];
+const upload = ref(35);
+const uploading = ref(true);
+let timer: ReturnType<typeof setInterval> | undefined;
+function startUpload(): void {
+    upload.value = 0;
+    uploading.value = true;
+    clearInterval(timer);
+    timer = setInterval(() => {
+        upload.value = Math.min(100, upload.value + 10);
+        if (upload.value === 100) {
+            clearInterval(timer);
+        }
+    }, 400);
+}
+function cancelUpload(): void {
+    clearInterval(timer);
+    uploading.value = false;
+}
+onUnmounted(() => clearInterval(timer));
 </script>
 
 <template>
@@ -188,6 +232,84 @@ const decisionDate = "20260315";
             <span v-format:date-full="decisionDate"></span>
         </f-static-field>
     </div>
+
+    <h2>Ikoner</h2>
+    <p>
+        <code>FIcon</code> visar en ikon ur ikonbiblioteket, här alla
+        {{ iconNames.length }} i <code>@fkui/icon-lib-default</code>. Ikoner är dolda för
+        skärmläsare om de inte får en <code>title</code>.
+    </p>
+    <ul class="icon-grid">
+        <li v-for="name in iconNames" :key="name">
+            <f-icon :name class="icon-grid__icon" />
+            <code>{{ name }}</code>
+        </li>
+    </ul>
+    <p class="icon-row">
+        <span><f-icon name="arrow-right" /> vanlig</span>
+        <span><f-icon name="arrow-right" flip="horizontal" /> spegelvänd</span>
+        <span><f-icon name="arrow-right" rotate="90" /> roterad 90°</span>
+        <span>
+            <span class="icon-stack icon-stack--circle">
+                <f-icon name="circle" />
+                <f-icon name="success" />
+            </span>
+            staplad
+        </span>
+        <span>
+            <f-icon name="pen"><title>Redigera</title></f-icon>
+            med titel för skärmläsare
+        </span>
+    </p>
+
+    <h2>Logotyp</h2>
+    <p>
+        <code>FLogo</code> visar logotypen som appen anger med CSS-variablerna
+        <code>--f-logo-image-small</code> och <code>--f-logo-image-large</code> (se
+        <code>style.css</code>). Den här demon har en påhittad logotyp.
+    </p>
+    <div class="logos">
+        <f-logo size="small">FKUI-demo</f-logo>
+        <f-logo size="large">FKUI-demo</f-logo>
+        <f-logo>FKUI-demo</f-logo>
+    </div>
+    <p class="hint">Liten, stor och responsiv (växlar efter fönstrets bredd).</p>
+
+    <h2>Filer</h2>
+    <p>
+        <code>FFileItem</code> visar en fil, till exempel efter att användaren valt den med
+        <code>FFileSelector</code> (se Formulär). Ikonen väljs efter filtypen.
+    </p>
+    <ul class="files">
+        <li v-for="file in files" :key="file.name">
+            <f-file-item :file-name="file.name" :mime-type="file.type" />
+        </li>
+        <li>
+            <f-file-item file-name="Hyreskontrakt.pdf" mime-type="application/pdf">
+                <template #row>
+                    <f-button
+                        v-if="uploading && upload < 100"
+                        variant="tertiary"
+                        size="small"
+                        icon-left="close"
+                        @click="cancelUpload"
+                    >
+                        Avbryt uppladdning
+                    </f-button>
+                    <f-button v-else variant="tertiary" size="small" @click="startUpload">
+                        Ladda upp igen
+                    </f-button>
+                </template>
+                <f-progressbar
+                    v-if="uploading"
+                    aria-label="Uppladdning av Hyreskontrakt.pdf"
+                    :value="upload"
+                    value-text="Uppladdat: %VALUE% %"
+                />
+                <p v-else class="hint">Uppladdningen avbröts.</p>
+            </f-file-item>
+        </li>
+    </ul>
 </template>
 
 <style scoped>
@@ -201,5 +323,48 @@ const decisionDate = "20260315";
 
 .fields {
     max-width: 28rem;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+}
+
+.icon-grid li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-grid__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+}
+
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hint {
+    color: var(--fkds-color-text-secondary, #555);
+}
+
+.files {
+    list-style: none;
+    padding: 0;
+    max-width: 32rem;
 }
 </style>
